@@ -1,0 +1,22 @@
+Initializing Systems
+Graphics Sys Initializing
+=========================
+3.3.0 NVIDIA 346.47
+3.30 NVIDIA via Cg compiler
+NVIDIA Corporation
+GeForce GTX 460/PCIe/SSE2
+=========================
+-------------------------------------
+PRITING ACTIVE ATTRIBUTES VARIABLES
+-------------------------------------
+0 : Pos
+1 : inColor
+-------------------------------------
+PRITING ACTIVE UNIFORMS
+-------------------------------------
+0 : model
+2 : proj
+1 : view
+Disposing Systems
+Graphics Sys Disposing
+Done.
