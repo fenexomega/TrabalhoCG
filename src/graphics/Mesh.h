@@ -63,7 +63,7 @@ public:
 
     void changeColor(glm::vec3 color, bool original= false );
     virtual void VDraw();
-	~Mesh();
+    virtual ~Mesh();
 
     Transform& transform();
     void setTransform(const Transform &trans);

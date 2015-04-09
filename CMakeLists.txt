@@ -25,7 +25,7 @@ find_package(GLM REQUIRED)
 
 # the FindOpenGL.cmake file sets the value of
 # OPENGL_LIBRARY to /usr/local/lib/libGL.so,
-# this place uses an old version of the libGL.
+# this place has an old version of the libGL.
 if(UNIX)
     set(OPENGL_LIBRARY "/usr/lib/libGL.so")
 endif()
@@ -48,7 +48,7 @@ if( NOT MSVC)
     endif()
 endif()
 
-include_directories(src/ ${SDL2_INCLUDE_DIRECTORY} ${SDL2IMAGE_INCLUDE_DIR} ${GLEW_INCLUDE_DIRECTORY} ${OpenGL_INCLUDE_DIRECTORY}
+include_directories(src/ thirdparty/ ${SDL2_INCLUDE_DIRECTORY} ${SDL2IMAGE_INCLUDE_DIR} ${GLEW_INCLUDE_DIRECTORY} ${OpenGL_INCLUDE_DIRECTORY}
                          ${GLM_INCLUDE_DIRECTORY}    )
 target_link_libraries(${CMAKE_PROJECT_NAME} ${GLM_LIRBARY} ${SDL2_LIBRARY} ${SDL2IMAGE_LIBRARY} ${GLEW_LIBRARIES} ${OPENGL_LIBRARY})
 

@@ -426,6 +426,30 @@ src/objects/Arrow.cpp.s:
 	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/objects/Arrow.cpp.s
 .PHONY : src/objects/Arrow.cpp.s
 
+src/objects/CoordinateArrows.o: src/objects/CoordinateArrows.cpp.o
+.PHONY : src/objects/CoordinateArrows.o
+
+# target to build an object file
+src/objects/CoordinateArrows.cpp.o:
+	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.o
+.PHONY : src/objects/CoordinateArrows.cpp.o
+
+src/objects/CoordinateArrows.i: src/objects/CoordinateArrows.cpp.i
+.PHONY : src/objects/CoordinateArrows.i
+
+# target to preprocess a source file
+src/objects/CoordinateArrows.cpp.i:
+	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.i
+.PHONY : src/objects/CoordinateArrows.cpp.i
+
+src/objects/CoordinateArrows.s: src/objects/CoordinateArrows.cpp.s
+.PHONY : src/objects/CoordinateArrows.s
+
+# target to generate assembly for a file
+src/objects/CoordinateArrows.cpp.s:
+	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.s
+.PHONY : src/objects/CoordinateArrows.cpp.s
+
 src/utils/Logger.o: src/utils/Logger.cpp.o
 .PHONY : src/utils/Logger.o
 
@@ -522,6 +546,9 @@ help:
 	@echo "... src/objects/Arrow.o"
 	@echo "... src/objects/Arrow.i"
 	@echo "... src/objects/Arrow.s"
+	@echo "... src/objects/CoordinateArrows.o"
+	@echo "... src/objects/CoordinateArrows.i"
+	@echo "... src/objects/CoordinateArrows.s"
 	@echo "... src/utils/Logger.o"
 	@echo "... src/utils/Logger.i"
 	@echo "... src/utils/Logger.s"

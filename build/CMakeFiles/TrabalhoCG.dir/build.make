@@ -49,32 +49,101 @@ include CMakeFiles/TrabalhoCG.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/TrabalhoCG.dir/flags.make
 
-CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
-CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o: ../src/input/sysInput.cpp
+CMakeFiles/TrabalhoCG.dir/src/main.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
+CMakeFiles/TrabalhoCG.dir/src/main.cpp.o: ../src/main.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/input/sysInput.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/main.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/main.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/main.cpp
 
-CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/input/sysInput.cpp > CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.i
+CMakeFiles/TrabalhoCG.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/main.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/main.cpp > CMakeFiles/TrabalhoCG.dir/src/main.cpp.i
 
-CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/input/sysInput.cpp -o CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.s
+CMakeFiles/TrabalhoCG.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/main.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/main.cpp -o CMakeFiles/TrabalhoCG.dir/src/main.cpp.s
 
-CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o.requires:
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o.requires
+CMakeFiles/TrabalhoCG.dir/src/main.cpp.o.requires:
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/main.cpp.o.requires
 
-CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o.requires
-	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o.provides.build
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o.provides
+CMakeFiles/TrabalhoCG.dir/src/main.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/main.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/main.cpp.o.provides.build
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/main.cpp.o.provides
 
-CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o
+CMakeFiles/TrabalhoCG.dir/src/main.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/main.cpp.o
+
+CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
+CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o: ../src/utils/Logger.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/utils/Logger.cpp
+
+CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/utils/Logger.cpp > CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.i
+
+CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/utils/Logger.cpp -o CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.s
+
+CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o.requires:
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o.requires
+
+CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o.provides.build
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o.provides
+
+CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o
+
+CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
+CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o: ../src/utils/Timer.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/utils/Timer.cpp
+
+CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/utils/Timer.cpp > CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.i
+
+CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/utils/Timer.cpp -o CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.s
+
+CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o.requires:
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o.requires
+
+CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o.provides.build
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o.provides
+
+CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o
+
+CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
+CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.o: ../src/objects/CoordinateArrows.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/objects/CoordinateArrows.cpp
+
+CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/objects/CoordinateArrows.cpp > CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.i
+
+CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/objects/CoordinateArrows.cpp -o CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.s
+
+CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.o.requires:
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.o.requires
+
+CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.o.provides.build
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.o.provides
+
+CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.o
 
 CMakeFiles/TrabalhoCG.dir/src/objects/Arrow.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
 CMakeFiles/TrabalhoCG.dir/src/objects/Arrow.cpp.o: ../src/objects/Arrow.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/objects/Arrow.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/objects/Arrow.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/objects/Arrow.cpp
 
@@ -94,75 +163,6 @@ CMakeFiles/TrabalhoCG.dir/src/objects/Arrow.cpp.o.provides: CMakeFiles/TrabalhoC
 .PHONY : CMakeFiles/TrabalhoCG.dir/src/objects/Arrow.cpp.o.provides
 
 CMakeFiles/TrabalhoCG.dir/src/objects/Arrow.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/objects/Arrow.cpp.o
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
-CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o: ../src/graphics/Texture.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_3)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/graphics/Texture.cpp
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/graphics/Texture.cpp > CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.i
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/graphics/Texture.cpp -o CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.s
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o.requires:
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o.requires
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o.requires
-	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o.provides.build
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o.provides
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
-CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o: ../src/graphics/Transform.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_4)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/graphics/Transform.cpp
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/graphics/Transform.cpp > CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.i
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/graphics/Transform.cpp -o CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.s
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o.requires:
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o.requires
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o.requires
-	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o.provides.build
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o.provides
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
-CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o: ../src/graphics/Program.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_5)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/graphics/Program.cpp
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/graphics/Program.cpp > CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.i
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/graphics/Program.cpp -o CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.s
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o.requires:
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o.requires
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o.requires
-	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o.provides.build
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o.provides
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o
 
 CMakeFiles/TrabalhoCG.dir/src/graphics/Shader.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
 CMakeFiles/TrabalhoCG.dir/src/graphics/Shader.cpp.o: ../src/graphics/Shader.cpp
@@ -187,78 +187,9 @@ CMakeFiles/TrabalhoCG.dir/src/graphics/Shader.cpp.o.provides: CMakeFiles/Trabalh
 
 CMakeFiles/TrabalhoCG.dir/src/graphics/Shader.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/graphics/Shader.cpp.o
 
-CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
-CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o: ../src/graphics/Mesh.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_7)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/graphics/Mesh.cpp
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/graphics/Mesh.cpp > CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.i
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/graphics/Mesh.cpp -o CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.s
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o.requires:
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o.requires
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o.requires
-	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o.provides.build
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o.provides
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
-CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o: ../src/graphics/Window.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_8)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/graphics/Window.cpp
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/graphics/Window.cpp > CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.i
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/graphics/Window.cpp -o CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.s
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o.requires:
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o.requires
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o.requires
-	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o.provides.build
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o.provides
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
-CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o: ../src/graphics/Camera.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_9)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/graphics/Camera.cpp
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/graphics/Camera.cpp > CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.i
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/graphics/Camera.cpp -o CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.s
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o.requires:
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o.requires
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o.requires
-	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o.provides.build
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o.provides
-
-CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o
-
 CMakeFiles/TrabalhoCG.dir/src/graphics/SysGraphics.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
 CMakeFiles/TrabalhoCG.dir/src/graphics/SysGraphics.cpp.o: ../src/graphics/SysGraphics.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_10)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/graphics/SysGraphics.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/graphics/SysGraphics.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/graphics/SysGraphics.cpp
 
@@ -279,101 +210,147 @@ CMakeFiles/TrabalhoCG.dir/src/graphics/SysGraphics.cpp.o.provides: CMakeFiles/Tr
 
 CMakeFiles/TrabalhoCG.dir/src/graphics/SysGraphics.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/graphics/SysGraphics.cpp.o
 
-CMakeFiles/TrabalhoCG.dir/src/main.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
-CMakeFiles/TrabalhoCG.dir/src/main.cpp.o: ../src/main.cpp
+CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
+CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o: ../src/graphics/Camera.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_8)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/graphics/Camera.cpp
+
+CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/graphics/Camera.cpp > CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.i
+
+CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/graphics/Camera.cpp -o CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.s
+
+CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o.requires:
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o.requires
+
+CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o.provides.build
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o.provides
+
+CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o
+
+CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
+CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o: ../src/graphics/Program.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_9)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/graphics/Program.cpp
+
+CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/graphics/Program.cpp > CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.i
+
+CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/graphics/Program.cpp -o CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.s
+
+CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o.requires:
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o.requires
+
+CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o.provides.build
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o.provides
+
+CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o
+
+CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
+CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o: ../src/graphics/Window.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_10)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/graphics/Window.cpp
+
+CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/graphics/Window.cpp > CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.i
+
+CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/graphics/Window.cpp -o CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.s
+
+CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o.requires:
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o.requires
+
+CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o.provides.build
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o.provides
+
+CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o
+
+CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
+CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o: ../src/graphics/Texture.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_11)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/main.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/graphics/Texture.cpp
 
-CMakeFiles/TrabalhoCG.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/main.cpp > CMakeFiles/TrabalhoCG.dir/src/main.cpp.i
+CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/graphics/Texture.cpp > CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.i
 
-CMakeFiles/TrabalhoCG.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/main.cpp -o CMakeFiles/TrabalhoCG.dir/src/main.cpp.s
+CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/graphics/Texture.cpp -o CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.s
 
-CMakeFiles/TrabalhoCG.dir/src/main.cpp.o.requires:
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/main.cpp.o.requires
+CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o.requires:
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o.requires
 
-CMakeFiles/TrabalhoCG.dir/src/main.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/main.cpp.o.requires
-	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/main.cpp.o.provides.build
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/main.cpp.o.provides
+CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o.provides.build
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o.provides
 
-CMakeFiles/TrabalhoCG.dir/src/main.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/main.cpp.o
+CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o
 
-CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
-CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o: ../src/Engine.cpp
+CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
+CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o: ../src/graphics/Transform.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_12)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/Engine.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/graphics/Transform.cpp
 
-CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/Engine.cpp > CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.i
+CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/graphics/Transform.cpp > CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.i
 
-CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/Engine.cpp -o CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.s
+CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/graphics/Transform.cpp -o CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.s
 
-CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o.requires:
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o.requires
+CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o.requires:
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o.requires
 
-CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o.requires
-	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o.provides.build
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o.provides
+CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o.provides.build
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o.provides
 
-CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o
+CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o
 
-CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
-CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o: ../src/utils/Timer.cpp
+CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
+CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o: ../src/graphics/Mesh.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_13)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/utils/Timer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/graphics/Mesh.cpp
 
-CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/utils/Timer.cpp > CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.i
+CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/graphics/Mesh.cpp > CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.i
 
-CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/utils/Timer.cpp -o CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.s
+CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/graphics/Mesh.cpp -o CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.s
 
-CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o.requires:
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o.requires
+CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o.requires:
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o.requires
 
-CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o.requires
-	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o.provides.build
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o.provides
+CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o.provides.build
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o.provides
 
-CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o
-
-CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
-CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o: ../src/utils/Logger.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_14)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/utils/Logger.cpp
-
-CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/utils/Logger.cpp > CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.i
-
-CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/utils/Logger.cpp -o CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.s
-
-CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o.requires:
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o.requires
-
-CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o.requires
-	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o.provides.build
-.PHONY : CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o.provides
-
-CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o
+CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o
 
 CMakeFiles/TrabalhoCG.dir/src/game/Game.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
 CMakeFiles/TrabalhoCG.dir/src/game/Game.cpp.o: ../src/game/Game.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_15)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_14)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/game/Game.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/game/Game.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/game/Game.cpp
 
@@ -394,42 +371,90 @@ CMakeFiles/TrabalhoCG.dir/src/game/Game.cpp.o.provides: CMakeFiles/TrabalhoCG.di
 
 CMakeFiles/TrabalhoCG.dir/src/game/Game.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/game/Game.cpp.o
 
+CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
+CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o: ../src/Engine.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_15)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/Engine.cpp
+
+CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/Engine.cpp > CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.i
+
+CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/Engine.cpp -o CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.s
+
+CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o.requires:
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o.requires
+
+CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o.provides.build
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o.provides
+
+CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o
+
+CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o: CMakeFiles/TrabalhoCG.dir/flags.make
+CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o: ../src/input/sysInput.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles $(CMAKE_PROGRESS_16)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o -c /home/jordy/Dropbox/TrabalhoCG/src/input/sysInput.cpp
+
+CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jordy/Dropbox/TrabalhoCG/src/input/sysInput.cpp > CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.i
+
+CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jordy/Dropbox/TrabalhoCG/src/input/sysInput.cpp -o CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.s
+
+CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o.requires:
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o.requires
+
+CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o.provides: CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TrabalhoCG.dir/build.make CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o.provides.build
+.PHONY : CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o.provides
+
+CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o.provides.build: CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o
+
 # Object files for target TrabalhoCG
 TrabalhoCG_OBJECTS = \
-"CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o" \
+"CMakeFiles/TrabalhoCG.dir/src/main.cpp.o" \
+"CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o" \
+"CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o" \
+"CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.o" \
 "CMakeFiles/TrabalhoCG.dir/src/objects/Arrow.cpp.o" \
+"CMakeFiles/TrabalhoCG.dir/src/graphics/Shader.cpp.o" \
+"CMakeFiles/TrabalhoCG.dir/src/graphics/SysGraphics.cpp.o" \
+"CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o" \
+"CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o" \
+"CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o" \
 "CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o" \
 "CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o" \
-"CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o" \
-"CMakeFiles/TrabalhoCG.dir/src/graphics/Shader.cpp.o" \
 "CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o" \
-"CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o" \
-"CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o" \
-"CMakeFiles/TrabalhoCG.dir/src/graphics/SysGraphics.cpp.o" \
-"CMakeFiles/TrabalhoCG.dir/src/main.cpp.o" \
+"CMakeFiles/TrabalhoCG.dir/src/game/Game.cpp.o" \
 "CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o" \
-"CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o" \
-"CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o" \
-"CMakeFiles/TrabalhoCG.dir/src/game/Game.cpp.o"
+"CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o"
 
 # External object files for target TrabalhoCG
 TrabalhoCG_EXTERNAL_OBJECTS =
 
-TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o
+TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/main.cpp.o
+TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o
+TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o
+TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.o
 TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/objects/Arrow.cpp.o
+TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/graphics/Shader.cpp.o
+TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/graphics/SysGraphics.cpp.o
+TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o
+TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o
+TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o
 TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o
 TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o
-TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o
-TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/graphics/Shader.cpp.o
 TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o
-TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o
-TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o
-TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/graphics/SysGraphics.cpp.o
-TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/main.cpp.o
-TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o
-TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o
-TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o
 TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/game/Game.cpp.o
+TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o
+TrabalhoCG: CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o
 TrabalhoCG: CMakeFiles/TrabalhoCG.dir/build.make
 TrabalhoCG: /usr/lib64/libSDL2.so
 TrabalhoCG: /usr/lib64/libSDL2_image.so
@@ -443,21 +468,22 @@ TrabalhoCG: CMakeFiles/TrabalhoCG.dir/link.txt
 CMakeFiles/TrabalhoCG.dir/build: TrabalhoCG
 .PHONY : CMakeFiles/TrabalhoCG.dir/build
 
-CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o.requires
+CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/main.cpp.o.requires
+CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o.requires
+CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o.requires
+CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.o.requires
 CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/objects/Arrow.cpp.o.requires
+CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/graphics/Shader.cpp.o.requires
+CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/graphics/SysGraphics.cpp.o.requires
+CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o.requires
+CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o.requires
+CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o.requires
 CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/graphics/Texture.cpp.o.requires
 CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/graphics/Transform.cpp.o.requires
-CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/graphics/Program.cpp.o.requires
-CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/graphics/Shader.cpp.o.requires
 CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/graphics/Mesh.cpp.o.requires
-CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/graphics/Window.cpp.o.requires
-CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/graphics/Camera.cpp.o.requires
-CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/graphics/SysGraphics.cpp.o.requires
-CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/main.cpp.o.requires
-CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o.requires
-CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o.requires
-CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o.requires
 CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/game/Game.cpp.o.requires
+CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/Engine.cpp.o.requires
+CMakeFiles/TrabalhoCG.dir/requires: CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o.requires
 .PHONY : CMakeFiles/TrabalhoCG.dir/requires
 
 CMakeFiles/TrabalhoCG.dir/clean:

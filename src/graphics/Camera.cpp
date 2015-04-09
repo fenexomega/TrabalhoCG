@@ -63,6 +63,23 @@ void Camera::RotateY(GLfloat angle)
 
 }
 
+glm::mat4 Camera::changePerspective()
+{
+    static bool ortho = true;
+    if(ortho)
+    {
+        proj = glm::ortho(-1.0f,1.0f,-1.0f,1.0f,0.01f,100.f);
+    }
+    else
+    {
+        proj = glm::perspective(m_FOV, Window::getWidth()/(GLfloat)Window::getHeight(),0.001f,100.0f);
+    }
+    ortho = !ortho;
+
+
+}
+
+
 void Camera::RotateX(GLfloat angle)
 {
     rotationX += angle;
@@ -81,14 +98,14 @@ void Camera::Move(GLfloat right, GLfloat up, GLfloat front )
 }
 
 Camera::Camera(glm::vec3 _eye, glm::vec3 _center, glm::vec3 _up,Program *program, GLfloat FOV)
-    : eye(_eye), center(_center),up(_up)
+    : eye(_eye), center(_center),up(_up),m_FOV(FOV)
 {
     projAttrib = 2;
     viewAttrib = 1;
 
     view = glm::lookAt(eye,center,up);
 
-    proj = glm::perspective(FOV, Window::getWidth()/(GLfloat)Window::getHeight(),0.1f,100.0f);
+    proj = glm::perspective(m_FOV, Window::getWidth()/(GLfloat)Window::getHeight(),0.001f,100.0f);
 
     glUniformMatrix4fv(projAttrib,1,GL_FALSE,glm::value_ptr(proj));
     glUniformMatrix4fv(viewAttrib,1,GL_FALSE,glm::value_ptr(view));

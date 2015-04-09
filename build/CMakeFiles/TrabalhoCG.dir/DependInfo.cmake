@@ -17,6 +17,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/jordy/Dropbox/TrabalhoCG/src/input/sysInput.cpp" "/home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles/TrabalhoCG.dir/src/input/sysInput.cpp.o"
   "/home/jordy/Dropbox/TrabalhoCG/src/main.cpp" "/home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles/TrabalhoCG.dir/src/main.cpp.o"
   "/home/jordy/Dropbox/TrabalhoCG/src/objects/Arrow.cpp" "/home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles/TrabalhoCG.dir/src/objects/Arrow.cpp.o"
+  "/home/jordy/Dropbox/TrabalhoCG/src/objects/CoordinateArrows.cpp" "/home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles/TrabalhoCG.dir/src/objects/CoordinateArrows.cpp.o"
   "/home/jordy/Dropbox/TrabalhoCG/src/utils/Logger.cpp" "/home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles/TrabalhoCG.dir/src/utils/Logger.cpp.o"
   "/home/jordy/Dropbox/TrabalhoCG/src/utils/Timer.cpp" "/home/jordy/Dropbox/TrabalhoCG/build/CMakeFiles/TrabalhoCG.dir/src/utils/Timer.cpp.o"
   )
@@ -29,6 +30,7 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "../src"
+  "../thirdparty"
   "/usr/include/SDL2"
   )
 set(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

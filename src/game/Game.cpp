@@ -61,7 +61,7 @@ void Game::init()
     p->PrintActiveVertexInput();
     p->PrintActiveUniforms();
 
-    cam = new Camera(vec3(0,0,2),vec3(0,0,0),vec3(0,1,0),p,70.0f);
+    cam = new Camera(vec3(0,0,2.f),vec3(0,0,0),vec3(0,1,0),p,70.0f);
 
 
 }
@@ -72,22 +72,25 @@ void Game::update(double delta)
 
 
     if(sysInput::isKeyPressed(SDL_SCANCODE_W))
-        cam->Move(0,0,-0.01f);
+        cam->Move(0,0,-0.02f);
     if(sysInput::isKeyPressed(SDL_SCANCODE_S))
-        cam->Move(0,0,0.01f);
+        cam->Move(0,0,0.02f);
     if(sysInput::isKeyPressed(SDL_SCANCODE_A))
-        cam->Move(-0.01f,0,0);
+        cam->Move(-0.02f,0,0);
     if(sysInput::isKeyPressed(SDL_SCANCODE_D))
-        cam->Move(0.01f,0,0);
+        cam->Move(0.02f,0,0);
+
     if(sysInput::isKeyPressed(SDL_SCANCODE_LEFT))
-        cam->RotateY(-0.05f);
+        cam->RotateY(-0.02f);
     if(sysInput::isKeyPressed(SDL_SCANCODE_RIGHT))
-        cam->RotateY(0.05f);
+        cam->RotateY(0.02f);
     if(sysInput::isKeyPressed(SDL_SCANCODE_UP))
         cam->RotateX(-0.01f);
     if(sysInput::isKeyPressed(SDL_SCANCODE_DOWN))
         cam->RotateX(0.01f);
 
+    if(sysInput::isKeyDown(SDL_SCANCODE_F6))
+        cam->changePerspective();
 
     if(sysInput::isKeyDown(SDL_SCANCODE_F5))
     {
