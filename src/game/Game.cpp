@@ -61,7 +61,7 @@ void Game::init()
     p->PrintActiveVertexInput();
     p->PrintActiveUniforms();
 
-    cam = new Camera(vec3(0,0,2.f),vec3(0,0,0),vec3(0,1,0),p,70.0f);
+    cam = new Camera(vec3(0,0,1.0f),vec3(0,0,0),vec3(0,1,0),p,70.0f);
 
 
 }

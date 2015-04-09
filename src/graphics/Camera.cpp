@@ -36,7 +36,6 @@ void Camera::Rotate()
 void Camera::Update()
 {
     view = glm::lookAt(eye,center,up);
-    glUniformMatrix4fv(projAttrib,1,GL_FALSE,glm::value_ptr(proj));
     glUniformMatrix4fv(viewAttrib,1,GL_FALSE,glm::value_ptr(view));
 
 }
@@ -75,6 +74,8 @@ glm::mat4 Camera::changePerspective()
         proj = glm::perspective(m_FOV, Window::getWidth()/(GLfloat)Window::getHeight(),0.001f,100.0f);
     }
     ortho = !ortho;
+    glUniformMatrix4fv(projAttrib,1,GL_FALSE,glm::value_ptr(proj));
+
 
 
 }

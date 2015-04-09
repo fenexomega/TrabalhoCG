@@ -100,8 +100,6 @@ void Mesh::changeColor(glm::vec3 color, bool original )
     glBindBuffer(GL_ARRAY_BUFFER,vbo[VB_COLORS]);
     glBufferData(GL_ARRAY_BUFFER,vertices*sizeof(float),t_colors.data(),GL_STATIC_DRAW);
     glBindVertexArray(0);
-
-
 }
 
 void Mesh::VUpdate()
@@ -112,10 +110,8 @@ void Mesh::VUpdate()
 void Mesh::VDraw()
 {
     glBindVertexArray(vao);
-
     m_transform.SendToShader();
     glDrawElements(GL_TRIANGLES,m_elements,GL_UNSIGNED_INT,0);
-
     glBindVertexArray(0);
 }
 

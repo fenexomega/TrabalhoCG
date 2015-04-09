@@ -101,9 +101,3 @@ bool sysInput::getMouseButton(int button)
     return SDL_GetMouseState(NULL, NULL)&SDL_BUTTON(button);
 }
 
-//string sysInput::getText()
-//{
-////    std::string text(SDL_TextInputEvent.text);
-////    return text;
-
-//}
