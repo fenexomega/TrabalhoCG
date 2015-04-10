@@ -26,6 +26,8 @@ CoordinateArrows::~CoordinateArrows()
 
 void CoordinateArrows::VUpdate()
 {
+
+
 }
 
 void CoordinateArrows::VDraw()

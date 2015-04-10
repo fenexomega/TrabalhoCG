@@ -48,7 +48,7 @@ void Engine::Run(iGame *game)
     double timeFrame,totalTime = 0;
     int framerate = 0;
 
-    while(!win.UserWannaQuit())
+    while(!sysInput::UserWannaQuit())
     {
         timeFrame = time.getTime();
         totalTime += timeFrame;
@@ -64,13 +64,13 @@ void Engine::Run(iGame *game)
         game->update(timeFrame);
 
         Buttons();
+        SDL_Delay(1000.0f/60);
 
         game->draw(timeFrame);
 
         win.SwapBuffers();
     }
 	game->dispose();
-
 
     win.Destroy();
 }

@@ -26,6 +26,23 @@ std::ostream& operator<<(std::ostream& os, glm::vec3 vec)
     return os << "(" << vec.x << "," << vec.y << "," << vec.z << ")";
 }
 
+
+
+
+GLfloat Camera::FOV() const
+{
+    return m_FOV;
+}
+
+void Camera::setFOV(const GLfloat &FOV)
+{
+    m_FOV = FOV;
+    std::cout << m_FOV << std::endl;
+    proj = glm::perspective(m_FOV, Window::getWidth()/(GLfloat)Window::getHeight(),0.001f,100.0f);
+    glUniformMatrix4fv(projAttrib,1,GL_FALSE,glm::value_ptr(proj));
+
+
+}
 void Camera::Rotate()
 {
     center = vec3(eye.x + 1*sin(rotationY) ,
@@ -67,7 +84,7 @@ glm::mat4 Camera::changePerspective()
     static bool ortho = true;
     if(ortho)
     {
-        proj = glm::ortho(-1.0f,1.0f,-1.0f,1.0f,0.01f,100.f);
+        proj = glm::ortho(-1.0f,1.0f,-1.0f,1.0f,-2.f,100.f);
     }
     else
     {
@@ -79,6 +96,7 @@ glm::mat4 Camera::changePerspective()
 
 
 }
+
 
 
 void Camera::RotateX(GLfloat angle)

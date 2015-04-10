@@ -20,7 +20,7 @@ public:
     vec3 _m_scale = vec3(1,1,1));
 
 //    glm::mat4 getModel() const;
-
+    Transform operator=(const Transform& T);
     glm::mat4 getMatrix();
 
     Transform& rotate(float angle,float x,float y,float z);

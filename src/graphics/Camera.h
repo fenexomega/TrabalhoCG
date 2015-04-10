@@ -31,5 +31,7 @@ public:
     ~Camera();
     void Translate(glm::vec3 vec);
     void RotateX(GLfloat angle);
+    GLfloat FOV() const;
+    void setFOV(const GLfloat &FOV);
 };
 #endif // CAMERA_H

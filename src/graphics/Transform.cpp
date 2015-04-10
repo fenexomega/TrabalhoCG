@@ -42,6 +42,11 @@ Transform::Transform(glm::vec3 _m_pos, glm::vec3 _m_rot, glm::vec3 _m_scale) :
 
 }
 
+Transform Transform::operator=(const Transform &T)
+{
+        m_model = T.m_model;
+}
+
 glm::mat4 Transform::getMatrix()
 {
     return m_model;

@@ -2,12 +2,20 @@
 
 #include "graphics/Mesh.h"
 
+#include "utils/Logger.h"
 #include "graphics/Program.h"
 #include "graphics/Camera.h"
-
+#include "objects/Grid.h"
 #include "input/sysInput.h"
 #include "objects/Arrow.h"
 #include "objects/CoordinateArrows.h"
+
+std::ostream& operator<<(std::ostream& os, glm::vec2 vec)
+{
+
+    return os << "(" << vec.x << "," << vec.y  <<  ")";
+}
+
 
 Game::Game()
 {
@@ -24,6 +32,7 @@ Game::~Game()
 void Game::init()
 {
 	glEnable(GL_DEPTH_TEST);
+    glEnable(GL_LINE_SMOOTH);
     std::vector<float> vao = {
         -5.5f,0.5f,0.0f,
         -5.5f,-0.5f,0.0f,
@@ -49,6 +58,7 @@ void Game::init()
 
     meshes.push_back(new Mesh(vao,glm::vec3(0.5,0,0),elements));
     meshes.push_back(new CoordinateArrows(vec3(0,0,1.0f)));
+    meshes.push_back(new Grid(vec3(0,-0.5,0),glm::vec2(20.0f,0.5f),40));
 
     Program *p = new Program;
     p->AttachShader(new Shader("gamev.glsl",Shader::VERTEX_SHADER));
@@ -61,7 +71,7 @@ void Game::init()
     p->PrintActiveVertexInput();
     p->PrintActiveUniforms();
 
-    cam = new Camera(vec3(0,0,1.0f),vec3(0,0,0),vec3(0,1,0),p,70.0f);
+    cam = new Camera(vec3(0,0,3.0f),vec3(0,0,0),vec3(0,1,0),p,70.0f);
 
 
 }
@@ -70,6 +80,8 @@ void Game::update(double delta)
 {
     cam->Update();
 
+    auto mouseWheel = sysInput::getMouseWheel();
+//    LOG(mouseWheel);
 
     if(sysInput::isKeyPressed(SDL_SCANCODE_W))
         cam->Move(0,0,-0.02f);
@@ -92,12 +104,21 @@ void Game::update(double delta)
     if(sysInput::isKeyDown(SDL_SCANCODE_F6))
         cam->changePerspective();
 
+    if((sysInput::isKeyPressed(SDL_SCANCODE_PAGEUP)))
+        cam->setFOV(cam->FOV() + 0.01f);
+    if(sysInput::isKeyPressed(SDL_SCANCODE_PAGEDOWN))
+        cam->setFOV(cam->FOV() - 0.01f);
+
+
     if(sysInput::isKeyDown(SDL_SCANCODE_F5))
     {
         static bool b = true;
         meshes.at(0)->changeColor(glm::vec3(1.0,1.0,1.0),b = !b);
 
     }
+
+
+
     for(auto m : meshes)
         m->VUpdate();
 }

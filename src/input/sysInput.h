@@ -26,6 +26,9 @@ static vector<int> currentKeys;
 
 class sysInput
 {
+private:
+    static glm::vec2 coords;
+    static SDL_Event e;
 public:
     static void update();
 
@@ -47,7 +50,11 @@ public:
 
     static glm::vec2 getMousePos();
 
+    static bool UserWannaQuit();
+
     static bool getMouseButton(int button);
+
+    static glm::vec2 getMouseWheel();
 
 //    static std::string getText();
 

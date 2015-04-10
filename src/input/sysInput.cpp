@@ -1,12 +1,23 @@
 #include "sysInput.h"
 
 
-
+SDL_Event sysInput::e;
+glm::vec2 sysInput::coords;
 
 void sysInput::update()
 {
-    SDL_PumpEvents();
+    SDL_PollEvent(&e);
     keys = SDL_GetKeyboardState(NULL);
+
+
+    coords = glm::vec2(0,0);
+    if(e.type == SDL_MOUSEWHEEL)
+    {
+       coords.x = e.wheel.x;
+       coords.y = e.wheel.y;
+    }
+    SDL_PumpEvents();
+
     int i;
     //TODO Mouse Unput!
 
@@ -99,5 +110,16 @@ glm::vec2 sysInput::getMousePos()
 bool sysInput::getMouseButton(int button)
 {
     return SDL_GetMouseState(NULL, NULL)&SDL_BUTTON(button);
+}
+
+bool sysInput::UserWannaQuit()
+{
+    return e.type == SDL_QUIT;
+}
+
+glm::vec2 sysInput::getMouseWheel()
+{
+
+    return coords;
 }
 

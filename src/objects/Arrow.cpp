@@ -1,5 +1,5 @@
 #include "Arrow.h"
-#define UNITY 0.005f
+#define UNITY 0.025f
 
 Arrow::Arrow(glm::vec3 pos, glm::vec3 color,
              glm::vec4 rot)
