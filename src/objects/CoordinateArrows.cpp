@@ -21,12 +21,19 @@ CoordinateArrows::~CoordinateArrows()
         delete m;
 }
 
+void CoordinateArrows::setTransform(const Transform &trans)
+{
+    this->m_transform = trans;
+    for(Mesh* m : m_meshes)
+        m->setTransform(trans);
+}
+
 
 
 
 void CoordinateArrows::VUpdate()
 {
-
+    //TODO update model matrix
 
 }
 

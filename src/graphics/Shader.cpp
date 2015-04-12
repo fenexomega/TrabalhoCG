@@ -20,7 +20,7 @@ Shader::Shader(string _filename,ShaderType shaderType) : filename(_filename)
 	compilationErrors = NULL;
 	string shaderSrc = ReadContentFromFile(filename);
 	const GLchar * src = shaderSrc.c_str();
-	glShaderSource(shaderID,1,&src ,0);
+    glShaderSource(shaderID,1,&src ,NULL);
 	glCompileShader(shaderID);
 	ReadErrors();
 

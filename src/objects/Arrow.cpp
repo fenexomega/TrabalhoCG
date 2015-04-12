@@ -1,6 +1,12 @@
 #include "Arrow.h"
 #define UNITY 0.025f
 
+
+Arrow::Arrow()
+{
+
+}
+
 Arrow::Arrow(glm::vec3 pos, glm::vec3 color,
              glm::vec4 rot)
     : m_pos(pos),m_choosenColor(color)
@@ -47,6 +53,14 @@ Arrow::Arrow(glm::vec3 pos, glm::vec3 color,
 Arrow::~Arrow()
 {
 
+}
+
+Arrow Arrow::operator=(Arrow a)
+{
+    m_pos = a.m_pos;
+    m_choosenColor = a.m_choosenColor;
+    this->operator =(a);
+    return *this;
 }
 
 

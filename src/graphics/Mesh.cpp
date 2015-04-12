@@ -3,6 +3,8 @@
 #include <glm/gtc/type_ptr.hpp>
 
 
+Program *Mesh::m_p;
+
 Mesh &Mesh::operator=(Mesh &v)
 {
     vao = v.vao;
@@ -28,6 +30,19 @@ Mesh::Mesh()
 void Mesh::setGlThings(std::vector<float> vertex,
                        std::vector<GLuint> elements)
 {
+    if(m_p == NULL)
+    {
+        m_p = new Program;
+        m_p->AttachShader(new Shader("gamev.glsl",Shader::VERTEX_SHADER));
+        m_p->AttachShader(new Shader("gamef.glsl",Shader::FRAGMENT_SHADER));
+        m_p->BindFragDataLocation("finalColor",0);
+
+        m_p->Link();
+
+        m_p->Use();
+        m_p->PrintActiveVertexInput();
+        m_p->PrintActiveUniforms();
+    }
     model = glm::mat4(1);
     vertices = vertex.size();
     m_elements = elements.size();
@@ -109,6 +124,7 @@ void Mesh::VUpdate()
 
 void Mesh::VDraw()
 {
+    m_p->Use();
     glBindVertexArray(vao);
     m_transform.SendToShader();
     glDrawElements(GL_TRIANGLES,m_elements,GL_UNSIGNED_INT,0);

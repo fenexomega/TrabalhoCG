@@ -24,6 +24,9 @@
 #include <glm/glm.hpp>
 #include <vector>
 #include "graphics/Transform.h"
+#include "graphics/Program.h"
+
+class Program;
 
 class Mesh
 {
@@ -31,6 +34,7 @@ protected:
     Mesh();
     void setGlThings(std::vector<float> vertex,
                      std::vector<GLuint> elements);
+    static Program *m_p;
     GLuint vao;
     int vertices;
     int m_elements;
@@ -60,9 +64,9 @@ public:
     Mesh(std::vector<float> vertex, glm::vec3 colors, std::vector<GLuint> elements);
 
     virtual void VUpdate();
+    virtual void VDraw();
 
     void changeColor(glm::vec3 color, bool original= false );
-    virtual void VDraw();
     virtual ~Mesh();
 
     Transform& transform();

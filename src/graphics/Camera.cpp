@@ -13,9 +13,9 @@ inline T CLAMP(T X,T MIN,T MAX)
 {
    return (X) > (MAX) ? (MAX) : (X) < (MIN) ? (MIN) : (X);
 }
-inline double TORAD(double x)
+inline float TORAD(double x)
 {
-	return (PI*(x))/180.0;
+    return (PI*(x))/180.0f;
 }
 
 #define ABS(x)   (x) < 0 ? -(x) : (x)
@@ -38,7 +38,7 @@ void Camera::setFOV(const GLfloat &FOV)
 {
     m_FOV = FOV;
     std::cout << m_FOV << std::endl;
-    proj = glm::perspective(m_FOV, Window::getWidth()/(GLfloat)Window::getHeight(),0.001f,100.0f);
+    proj = glm::perspective(TORAD(m_FOV), Window::getWidth()/(GLfloat)Window::getHeight(),0.001f,100.0f);
     glUniformMatrix4fv(projAttrib,1,GL_FALSE,glm::value_ptr(proj));
 
 
@@ -88,7 +88,7 @@ glm::mat4 Camera::changePerspective()
     }
     else
     {
-        proj = glm::perspective(m_FOV, Window::getWidth()/(GLfloat)Window::getHeight(),0.001f,100.0f);
+        proj = glm::perspective(TORAD(m_FOV), Window::getWidth()/(GLfloat)Window::getHeight(),0.001f,100.0f);
     }
     ortho = !ortho;
     glUniformMatrix4fv(projAttrib,1,GL_FALSE,glm::value_ptr(proj));
@@ -116,7 +116,7 @@ void Camera::Move(GLfloat right, GLfloat up, GLfloat front )
     Translate(distance);
 }
 
-Camera::Camera(glm::vec3 _eye, glm::vec3 _center, glm::vec3 _up,Program *program, GLfloat FOV)
+Camera::Camera(glm::vec3 _eye, glm::vec3 _center, glm::vec3 _up, GLfloat FOV)
     : eye(_eye), center(_center),up(_up),m_FOV(FOV)
 {
     projAttrib = 2;
@@ -124,7 +124,7 @@ Camera::Camera(glm::vec3 _eye, glm::vec3 _center, glm::vec3 _up,Program *program
 
     view = glm::lookAt(eye,center,up);
 
-    proj = glm::perspective(m_FOV, Window::getWidth()/(GLfloat)Window::getHeight(),0.001f,100.0f);
+    proj = glm::perspective(TORAD(m_FOV), Window::getWidth()/(GLfloat)Window::getHeight(),0.001f,100.0f);
 
     glUniformMatrix4fv(projAttrib,1,GL_FALSE,glm::value_ptr(proj));
     glUniformMatrix4fv(viewAttrib,1,GL_FALSE,glm::value_ptr(view));

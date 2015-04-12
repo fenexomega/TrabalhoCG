@@ -9,6 +9,7 @@
 #include "input/sysInput.h"
 #include "objects/Arrow.h"
 #include "objects/CoordinateArrows.h"
+#include "objects/Box.h"
 
 std::ostream& operator<<(std::ostream& os, glm::vec2 vec)
 {
@@ -59,19 +60,12 @@ void Game::init()
     meshes.push_back(new Mesh(vao,glm::vec3(0.5,0,0),elements));
     meshes.push_back(new CoordinateArrows(vec3(0,0,0)));
     meshes.push_back(new Grid(vec3(0,0,0),glm::vec2(20.0f,0.5f),40));
+    meshes.push_back(new Box(vec3(1.0,1.0,1.0),vec3(0,0.5,0.5)));
 
-    Program *p = new Program;
-    p->AttachShader(new Shader("gamev.glsl",Shader::VERTEX_SHADER));
-    p->AttachShader(new Shader("gamef.glsl",Shader::FRAGMENT_SHADER));
-    p->BindFragDataLocation("finalColor",0);
 
-    p->Link();
-    p->Use();
 
-    p->PrintActiveVertexInput();
-    p->PrintActiveUniforms();
 
-    cam = new Camera(vec3(0,0.5,3.0f),vec3(0,0.5,0),vec3(0,1,0),p,70.0f);
+    cam = new Camera(vec3(0,0.5,3.0f),vec3(0,0.5,0),vec3(0,1,0),70.0f);
 
 
 }
@@ -105,9 +99,9 @@ void Game::update(double delta)
         cam->changePerspective();
 
     if((sysInput::isKeyPressed(SDL_SCANCODE_PAGEUP)))
-        cam->setFOV(cam->FOV() + 0.01f);
+        cam->setFOV(cam->FOV() + 0.5f);
     if(sysInput::isKeyPressed(SDL_SCANCODE_PAGEDOWN))
-        cam->setFOV(cam->FOV() - 0.01f);
+        cam->setFOV(cam->FOV() - 0.5f);
 
 
     if(sysInput::isKeyDown(SDL_SCANCODE_F5))

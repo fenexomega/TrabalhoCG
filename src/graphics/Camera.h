@@ -5,7 +5,6 @@
 #include <GL/glew.h>
 #include <SDL2/SDL_opengl.h>
 
-#include "graphics/Program.h"
 
 using glm::vec3;
 using glm::mat4;
@@ -26,7 +25,7 @@ public:
     mat4 changePerspective();
 
     void Move(GLfloat right, GLfloat up, GLfloat front);
-    Camera(vec3 _eye, vec3 _center, vec3 _up, Program *program, GLfloat FOV);
+    Camera(vec3 _eye, vec3 _center, vec3 _up, GLfloat FOV);
 
     ~Camera();
     void Translate(glm::vec3 vec);
