@@ -4,7 +4,8 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <GL/glew.h>
 
-
+#define PI 3.141516f
+#define TORAD(x) (PI*(x))/180.0f
 
 vec3 &Transform::pos()
 {
@@ -65,13 +66,13 @@ glm::mat4 Transform::getMatrix()
 
 Transform& Transform::rotate(float angle, float x, float y, float z)
 {
-    m_model = glm::rotate(m_model,angle,vec3(x,y,z));
+    m_model = glm::rotate(m_model,TORAD(angle),vec3(x,y,z));
     return *this;
 }
 
 Transform& Transform::rotate(float angle, glm::vec3 vec)
 {
-    m_model = glm::rotate(m_model,angle,vec);
+    m_model = glm::rotate(m_model,TORAD(angle),vec);
     return *this;
 }
 

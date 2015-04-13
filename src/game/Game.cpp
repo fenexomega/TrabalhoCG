@@ -10,6 +10,8 @@
 #include "objects/Arrow.h"
 #include "objects/CoordinateArrows.h"
 #include "objects/Box.h"
+#include "objects/Square.h"
+#include "objects/Quarto.h"
 
 std::ostream& operator<<(std::ostream& os, glm::vec2 vec)
 {
@@ -34,34 +36,15 @@ void Game::init()
 {
 	glEnable(GL_DEPTH_TEST);
     glEnable(GL_LINE_SMOOTH);
-    std::vector<float> vao = {
-        -5.5f,1.0f,0.0f,
-        -5.5f,0.0f,0.0f,
-         5.5f,0.0f,0.0f,
-         5.5f,1.0f,0.0f,
-    };
-
-/*      std::vector<float> colors = {
-         1.0f,0.0f,0.0f,
-         0.0f, 1.0f,0.0f,
-        0.0f,0.0f,1.0f,
-        1.0f,1.0f,1.0f,
-    };
-	*/
-
-    std::vector<GLuint> elements = {
-        0,1,2,
-        2,3,0
-
-    };
 
 
 
-    meshes.push_back(new Mesh(vao,glm::vec3(0.5,0,0),elements));
+
     meshes.push_back(new CoordinateArrows(vec3(0,0,0)));
-    meshes.push_back(new Grid(vec3(0,0,0),glm::vec2(20.0f,0.5f),40));
+//    meshes.push_back(new Grid(vec3(0,0,0),glm::vec2(1.0f,1.f),20));
     meshes.push_back(new Box(vec3(1.0,1.0,1.0),vec3(0,0.5,0.5)));
-
+    meshes.push_back(new Square(glm::vec2(1.0,1.0),vec3(0.5,0.5,0),vec3(0,0,-2)));
+    meshes.push_back(new Quarto);
 
 
 

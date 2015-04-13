@@ -93,7 +93,7 @@ glm::mat4 Camera::changePerspective()
     ortho = !ortho;
     glUniformMatrix4fv(projAttrib,1,GL_FALSE,glm::value_ptr(proj));
 
-
+    return proj;
 
 }
 

@@ -10,7 +10,7 @@
 
 #define LOGFILE "output.txt"
 #define EXIT() Engine::DisposeSystems()
-#define LOG(x) std::cout << (x) << std::endl
+#define LOG(x) std::cout << x << std::endl
 #define TOSTR(x) std::to_string(x)
 #define ERROR(x) std::cerr << x << std::endl
 #define PRINT(x)  std::cout << x << std::endl

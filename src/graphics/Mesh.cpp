@@ -8,18 +8,16 @@ Program *Mesh::m_p;
 Mesh &Mesh::operator=(Mesh &v)
 {
     vao = v.vao;
-    int i = 0;
-    while(i < VB_BUFFERS)
-        vbo[i] = v.vbo[i++];
+    for(int i = 0;i < VB_BUFFERS;++i)
+        vbo[i] = v.vbo[i];
     return *this;
 }
 
 Mesh::Mesh(const Mesh& mesh)
 {
     vao = mesh.vao;
-    int i = 0;
-    while(i < VB_BUFFERS)
-        vbo[i] = mesh.vbo[i++];
+    for(int i = 0;i < VB_BUFFERS;++i)
+        vbo[i] = mesh.vbo[i];
 }
 
 Mesh::Mesh()
@@ -83,7 +81,7 @@ void Mesh::setTransform(const Transform &trans)
 Mesh::Mesh(std::vector<float> vertex,std::vector<float> colors,
            std::vector<GLuint> elements)
 {
-    for(int i = 0; i < colors.size(); i += 3)
+    for(uint i = 0; i < colors.size(); i += 3)
         m_color.push_back(glm::vec3(colors[i],colors[i+1],colors[i+2]));
     setGlThings(vertex,elements);
 }
@@ -91,7 +89,7 @@ Mesh::Mesh(std::vector<float> vertex,std::vector<float> colors,
 Mesh::Mesh(std::vector<float> vertex, glm::vec3 color,
            std::vector<GLuint> elements)
 {
-    for(auto i = 0; i < vertices; ++i)
+    for(int i = 0; i < vertices; ++i)
         m_color.push_back(color);
 
     setGlThings(vertex,elements);

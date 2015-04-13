@@ -27,6 +27,8 @@
 #include "graphics/Program.h"
 
 class Program;
+using glm::vec2;
+using glm::vec3;
 
 class Mesh
 {
