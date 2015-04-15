@@ -1,7 +1,8 @@
 #include "Mesh.h"
 #include <iostream>
 #include <glm/gtc/type_ptr.hpp>
-
+#include "Obj_Loader.h"
+#include <stdexcept>
 
 Program *Mesh::m_p;
 
@@ -93,6 +94,34 @@ Mesh::Mesh(std::vector<float> vertex, glm::vec3 color,
         m_color.push_back(color);
 
     setGlThings(vertex,elements);
+}
+
+Mesh::Mesh(std::string modelFile, glm::vec3 color)
+{
+    if(modelFile.empty())
+        throw std::runtime_error("Null string of model name Model.cpp:102");
+    IndexedModel model = OBJModel(modelFile).ToIndexedModel();
+
+
+
+    std::vector<GLfloat> vertex;
+
+    for(glm::vec3 f :model.positions )
+    {
+        vertex.push_back(f.x);
+        vertex.push_back(f.y);
+        vertex.push_back(f.z);
+
+    }
+
+    vertices = model.positions.size();
+
+    for(int i = 0; i < vertices; ++i)
+        m_color.push_back(color);
+
+    auto elements = model.indices;
+    setGlThings(vertex,elements);
+
 }
 
 void Mesh::changeColor(glm::vec3 color, bool original )

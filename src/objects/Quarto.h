@@ -8,7 +8,7 @@
 class Quarto : public Mesh
 {
 private:
-    std::vector<Mesh*> m_paredes;
+    std::vector<Mesh*> m_meshes;
 public:
     Quarto();
 

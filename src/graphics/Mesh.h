@@ -64,6 +64,7 @@ public:
 
     Mesh(std::vector<float> vertex, std::vector<float> colors, std::vector<GLuint> elements);
     Mesh(std::vector<float> vertex, glm::vec3 colors, std::vector<GLuint> elements);
+    Mesh(std::string modelFile, glm::vec3 color);
 
     virtual void VUpdate();
     virtual void VDraw();
