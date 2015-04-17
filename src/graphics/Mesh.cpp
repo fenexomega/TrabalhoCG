@@ -26,9 +26,28 @@ Mesh::Mesh()
 
 }
 
-void Mesh::setGlThings(std::vector<float> vertex,
-                       std::vector<GLuint> elements)
+void Mesh::setGlThings(std::vector<vec3> vertex,
+                       std::vector<GLuint> elements,std::vector<vec3> normals)
 {
+    if(!normals.size())
+    {
+        vec3 aux,v1,v2,v3;
+        for(uint i = 0; i < elements.size(); i += 3)
+        {
+            v1 = vertex[elements[i]];
+            v2 = vertex[elements[i+1]];
+            v3 = vertex[elements[i+2]];
+
+            aux = glm::cross((v2 - v1),(v3 - v1));
+            aux = glm::normalize(aux);
+            normals.push_back(aux);
+            normals.push_back(aux);
+            normals.push_back(aux);
+        }
+    }
+
+
+
     if(m_p == NULL)
     {
         m_p = new Program;
@@ -43,28 +62,38 @@ void Mesh::setGlThings(std::vector<float> vertex,
         m_p->PrintActiveUniforms();
     }
     model = glm::mat4(1);
-    vertices = vertex.size();
+    vertices = vertex.size()*3;
     m_elements = elements.size();
 
     glGenVertexArrays(1,&vao);
     glBindVertexArray(vao);
 
-    glEnableVertexAttribArray(0);
-    glEnableVertexAttribArray(1);
 
     glGenBuffers(VB_BUFFERS,vbo);
     glBindBuffer(GL_ARRAY_BUFFER,vbo[VB_VERTEX]);
     glBufferData(GL_ARRAY_BUFFER,vertices*sizeof(float),vertex.data(),GL_STATIC_DRAW);
     
     glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,3*sizeof(float),0);
+    glEnableVertexAttribArray(0);
+
 
     glBindBuffer(GL_ARRAY_BUFFER,vbo[VB_COLORS]);
     glBufferData(GL_ARRAY_BUFFER,vertices*sizeof(float),m_color.data(),GL_STATIC_DRAW);
 
     glVertexAttribPointer(1,3,GL_FLOAT,GL_FALSE,3*sizeof(float),0);
+    glEnableVertexAttribArray(1);
+
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,vbo[VB_ELEMENTS]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER,m_elements*sizeof(GLuint),elements.data(),GL_STATIC_DRAW);
+
+
+    glBindBuffer(GL_ARRAY_BUFFER,vbo[VB_NORMALS]);
+    glBufferData(GL_ARRAY_BUFFER,normals.size()*3*sizeof(float),normals.data(),GL_STATIC_DRAW);
+
+    glVertexAttribPointer(2,3,GL_FLOAT,GL_FALSE,3*sizeof(float),0);
+    glEnableVertexAttribArray(2);
+
 
     glBindVertexArray(0);
 }
@@ -79,7 +108,7 @@ void Mesh::setTransform(const Transform &trans)
 }
 
 
-Mesh::Mesh(std::vector<float> vertex,std::vector<float> colors,
+Mesh::Mesh(std::vector<vec3> vertex,std::vector<GLfloat> colors,
            std::vector<GLuint> elements)
 {
     for(uint i = 0; i < colors.size(); i += 3)
@@ -87,10 +116,10 @@ Mesh::Mesh(std::vector<float> vertex,std::vector<float> colors,
     setGlThings(vertex,elements);
 }
 
-Mesh::Mesh(std::vector<float> vertex, glm::vec3 color,
+Mesh::Mesh(std::vector<vec3> vertex, glm::vec3 color,
            std::vector<GLuint> elements)
 {
-    for(int i = 0; i < vertices; ++i)
+    for(int i = 0; i < vertex.size(); ++i)
         m_color.push_back(color);
 
     setGlThings(vertex,elements);
@@ -104,15 +133,13 @@ Mesh::Mesh(std::string modelFile, glm::vec3 color)
 
 
 
-    std::vector<GLfloat> vertex;
+    std::vector<vec3> vertex = model.positions;
 
-    for(glm::vec3 f :model.positions )
-    {
-        vertex.push_back(f.x);
-        vertex.push_back(f.y);
-        vertex.push_back(f.z);
+//    for(glm::vec3 f :model.positions )
+//    {
+//        vertex.push_back(vec3(f.x,f.y,f.z));
 
-    }
+//    }
 
     vertices = model.positions.size();
 
@@ -120,7 +147,7 @@ Mesh::Mesh(std::string modelFile, glm::vec3 color)
         m_color.push_back(color);
 
     auto elements = model.indices;
-    setGlThings(vertex,elements);
+    setGlThings(vertex,elements,model.normals);
 
 }
 

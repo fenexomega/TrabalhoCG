@@ -5,24 +5,13 @@
 
 Box::Box(glm::vec3 size, glm::vec3 color,glm::vec3 pos)
 {
-    std::vector<float> vertex;
+    std::vector<vec3> vertex;
     for(int i = 0; i < 2; ++i)
     {
-        vertex.push_back(-size.x/2);
-        vertex.push_back(size.y);
-        vertex.push_back(size.z/2);
-
-        vertex.push_back(-size.x/2);
-        vertex.push_back(0);
-        vertex.push_back(size.z/2);
-
-        vertex.push_back(size.x/2);
-        vertex.push_back(0);
-        vertex.push_back(size.z/2);
-
-        vertex.push_back(size.x/2);
-        vertex.push_back(size.y);
-        vertex.push_back(size.z/2);
+        vertex.push_back(vec3(-size.x/2,size.y,size.z/2));
+        vertex.push_back(vec3(-size.x/2,0,size.z/2));
+        vertex.push_back(vec3( size.x/2,0,size.z/2));
+        vertex.push_back(vec3( size.x/2,size.y,size.z/2));
 
         size.z *= -1;
     }

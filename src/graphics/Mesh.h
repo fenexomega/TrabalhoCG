@@ -34,8 +34,8 @@ class Mesh
 {
 protected:
     Mesh();
-    void setGlThings(std::vector<float> vertex,
-                     std::vector<GLuint> elements);
+    void setGlThings(std::vector<vec3> vertex,
+                     std::vector<GLuint> elements, std::vector<glm::vec3> normals = std::vector<vec3>());
     static Program *m_p;
     GLuint vao;
     int vertices;
@@ -54,7 +54,7 @@ private:
 		VB_VERTEX,
 		VB_COLORS,
         VB_ELEMENTS,
-
+        VB_NORMALS,
 		VB_BUFFERS
 	};
 	GLuint vbo[VB_BUFFERS];
@@ -62,8 +62,8 @@ public:
     Mesh& operator=(Mesh& v);
     Mesh(const Mesh &mesh);
 
-    Mesh(std::vector<float> vertex, std::vector<float> colors, std::vector<GLuint> elements);
-    Mesh(std::vector<float> vertex, glm::vec3 colors, std::vector<GLuint> elements);
+    Mesh(std::vector<vec3> vertex, std::vector<GLfloat> colors, std::vector<GLuint> elements);
+    Mesh(std::vector<vec3> vertex, glm::vec3 colors, std::vector<GLuint> elements);
     Mesh(std::string modelFile, glm::vec3 color);
 
     virtual void VUpdate();

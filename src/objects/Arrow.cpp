@@ -11,17 +11,17 @@ Arrow::Arrow(glm::vec3 pos, glm::vec3 color,
              glm::vec4 rot)
     : m_pos(pos),m_choosenColor(color)
 {
-    std::vector<GLfloat> vertex = {
-        -UNITY,UNITY*10,-UNITY,
-        -UNITY,UNITY*10,UNITY,
-         UNITY,UNITY*10,UNITY,
-         UNITY,UNITY*10,-UNITY,
+    std::vector<vec3> vertex = {
+        vec3(-UNITY,UNITY*10,-UNITY),
+        vec3(-UNITY,UNITY*10,UNITY),
+         vec3(UNITY,UNITY*10,UNITY),
+         vec3(UNITY,UNITY*10,-UNITY),
 
-        0.0f,3*UNITY+UNITY*10,0.0f,
+        vec3(0.0f,3*UNITY+UNITY*10,0.0f),
 
         //LINHA
-        0.0f,UNITY*10,0.0f,
-        0.0f,0.0f,0.0f
+        vec3(0.0f,UNITY*10,0.0f),
+        vec3(0.0f,0.0f,0.0f),
     };
 
 
@@ -35,7 +35,7 @@ Arrow::Arrow(glm::vec3 pos, glm::vec3 color,
         2,3,4,
         3,0,4,
 
-        5,6
+        5,6,7
     };
 
     for(auto i = 0; i < vertices; ++i)
