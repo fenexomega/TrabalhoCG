@@ -41,6 +41,7 @@ protected:
     int vertices;
     int m_elements;
     std::vector<glm::vec3> m_color;
+    std::vector<glm::vec3>
     glm::mat4 model{};
     Transform m_transform;
 

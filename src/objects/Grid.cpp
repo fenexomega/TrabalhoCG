@@ -41,10 +41,10 @@ void Grid::VDraw()
     glBindVertexArray(vao);
     Transform aux = m_transform;
     m_transform.SendToShader();
-    glDrawElements(GL_LINES,m_elements,GL_UNSIGNED_INT,0);
+    glDrawElements(GL_LINES,m_nbr_elements,GL_UNSIGNED_INT,0);
     m_transform.rotate(90.0f,0,1.0f,0);
     m_transform.SendToShader();
-    glDrawElements(GL_LINES,m_elements,GL_UNSIGNED_INT,0);
+    glDrawElements(GL_LINES,m_nbr_elements,GL_UNSIGNED_INT,0);
     m_transform = aux;
     glBindVertexArray(0);
 }

@@ -17,6 +17,10 @@ public:
     // Mesh interface
 public:
     void VDraw();
+
+    // Mesh interface
+public:
+    void VUpdate();
 };
 
 #endif // QUARTO_H

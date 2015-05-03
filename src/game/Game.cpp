@@ -13,6 +13,8 @@
 #include "objects/Square.h"
 #include "objects/Quarto.h"
 
+#include <graphics/Light.h>
+
 std::ostream& operator<<(std::ostream& os, glm::vec2 vec)
 {
 
@@ -50,7 +52,7 @@ void Game::init()
 
     cam = new Camera(vec3(0,0.5,3.0f),vec3(0,0.5,0),vec3(0,1,0),70.0f);
 
-
+    Light l{glm::vec4(0,-1,0,0)};
 }
 
 void Game::update(double delta)
