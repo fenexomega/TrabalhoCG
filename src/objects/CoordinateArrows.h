@@ -15,7 +15,7 @@ protected:
 public:
     CoordinateArrows(vec3 pos);
     ~CoordinateArrows();
-    void setTransform(const Transform &trans);
+    void setTransform(Transform *trans);
     // Mesh interface
 public:
     void VUpdate();

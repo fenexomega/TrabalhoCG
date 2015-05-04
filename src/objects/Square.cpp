@@ -24,7 +24,7 @@ Square::Square(glm::vec2 size, glm::vec3 color, glm::vec3 pos)
     }
 
     setGlThings(vertex,elements);
-    m_transform.translate(pos);
+    m_transform->translate(pos);
 }
 
 

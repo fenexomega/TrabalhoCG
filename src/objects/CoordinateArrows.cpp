@@ -21,7 +21,7 @@ CoordinateArrows::~CoordinateArrows()
         delete m;
 }
 
-void CoordinateArrows::setTransform(const Transform &trans)
+void CoordinateArrows::setTransform(Transform *trans)
 {
     this->m_transform = trans;
     for(Mesh* m : m_meshes)

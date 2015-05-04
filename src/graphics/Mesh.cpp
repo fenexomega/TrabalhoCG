@@ -23,13 +23,13 @@ Mesh::Mesh(const Mesh& mesh)
 
 Mesh::Mesh()
 {
-
+    m_transform = new Transform;
 }
 
 void Mesh::setGlThings(std::vector<vec3> vertex,
                        std::vector<GLuint> elements,std::vector<vec3> normals)
 {
-    if(!normals.size())
+    if(normals.size() == 0)
     {
         vec3 aux,v1,v2,v3;
         for(uint i = 0; i < elements.size(); i += 3)
@@ -63,7 +63,7 @@ void Mesh::setGlThings(std::vector<vec3> vertex,
     }
     model = glm::mat4(1);
     vertices = vertex.size()*3;
-    m_elements = elements.size();
+    m_nbr_elements = elements.size();
 
     glGenVertexArrays(1,&vao);
     glBindVertexArray(vao);
@@ -85,7 +85,7 @@ void Mesh::setGlThings(std::vector<vec3> vertex,
 
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,vbo[VB_ELEMENTS]);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER,m_elements*sizeof(GLuint),elements.data(),GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER,m_nbr_elements*sizeof(GLuint),elements.data(),GL_STATIC_DRAW);
 
 
     glBindBuffer(GL_ARRAY_BUFFER,vbo[VB_NORMALS]);
@@ -97,12 +97,32 @@ void Mesh::setGlThings(std::vector<vec3> vertex,
 
     glBindVertexArray(0);
 }
-Transform &Mesh::transform()
+std::vector<GLuint> Mesh::elements() const
+{
+    return m_elements;
+}
+
+void Mesh::setElements(const std::vector<GLuint> &elements)
+{
+    m_elements = elements;
+}
+
+std::vector<glm::vec3> Mesh::vertex() const
+{
+    return m_vertex;
+}
+
+void Mesh::setVertex(const std::vector<glm::vec3> &vertex)
+{
+    m_vertex = vertex;
+}
+
+Transform *Mesh::transform() const
 {
     return m_transform;
 }
 
-void Mesh::setTransform(const Transform &trans)
+void Mesh::setTransform(Transform *trans)
 {
     m_transform = trans;
 }
@@ -111,6 +131,8 @@ void Mesh::setTransform(const Transform &trans)
 Mesh::Mesh(std::vector<vec3> vertex,std::vector<GLfloat> colors,
            std::vector<GLuint> elements)
 {
+    m_transform = new Transform;
+
     for(uint i = 0; i < colors.size(); i += 3)
         m_color.push_back(glm::vec3(colors[i],colors[i+1],colors[i+2]));
     setGlThings(vertex,elements);
@@ -119,6 +141,8 @@ Mesh::Mesh(std::vector<vec3> vertex,std::vector<GLfloat> colors,
 Mesh::Mesh(std::vector<vec3> vertex, glm::vec3 color,
            std::vector<GLuint> elements)
 {
+    m_transform = new Transform;
+
     for(int i = 0; i < vertex.size(); ++i)
         m_color.push_back(color);
 
@@ -127,6 +151,8 @@ Mesh::Mesh(std::vector<vec3> vertex, glm::vec3 color,
 
 Mesh::Mesh(std::string modelFile, glm::vec3 color)
 {
+    m_transform = new Transform;
+
     if(modelFile.empty())
         throw std::runtime_error("Null string of model name Model.cpp:102");
     IndexedModel model = OBJModel(modelFile).ToIndexedModel();
@@ -180,13 +206,14 @@ void Mesh::VDraw()
 {
     m_p->Use();
     glBindVertexArray(vao);
-    m_transform.SendToShader();
-    glDrawElements(GL_TRIANGLES,m_elements,GL_UNSIGNED_INT,0);
+    m_transform->SendToShader();
+    glDrawElements(GL_TRIANGLES,m_nbr_elements,GL_UNSIGNED_INT,0);
     glBindVertexArray(0);
 }
 
 Mesh::~Mesh()
 {
+//    delete m_transform;
     glDeleteBuffers(VB_BUFFERS,vbo);
     glDeleteVertexArrays(1,&vao);
 }

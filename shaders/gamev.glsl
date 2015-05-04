@@ -15,7 +15,7 @@ out vec4 outNormal;
 void main(void)
 {
     gl_Position = proj * view *model * vec4(Pos,1.0);
-    outNormal =  model*  vec4(normal,0.0);
+    outNormal =  transpose(inverse(model))*  vec4(normal,0.0);
 
     outColor = vec4(inColor,1.0);
 }

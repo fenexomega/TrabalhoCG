@@ -27,7 +27,7 @@ Grid::Grid(glm::vec3 pos, glm::vec2 size, GLuint lineNbr, glm::vec3 color)
     LOG("X = " << color.x << " | " << "Y = " << color.y);
     for(auto i = 0; i < vertex.size(); ++i)
         m_color.push_back(color);
-    m_transform.translate(pos);
+    m_transform->translate(pos);
     setGlThings(vertex,elements,normals);
 }
 
@@ -39,11 +39,12 @@ Grid::~Grid()
 void Grid::VDraw()
 {
     glBindVertexArray(vao);
-    Transform aux = m_transform;
-    m_transform.SendToShader();
+    Transform *aux = new Transform;
+    *aux = *m_transform;
+    m_transform->SendToShader();
     glDrawElements(GL_LINES,m_nbr_elements,GL_UNSIGNED_INT,0);
-    m_transform.rotate(90.0f,0,1.0f,0);
-    m_transform.SendToShader();
+    m_transform->rotate(90.0f,0,1.0f,0);
+    m_transform->SendToShader();
     glDrawElements(GL_LINES,m_nbr_elements,GL_UNSIGNED_INT,0);
     m_transform = aux;
     glBindVertexArray(0);

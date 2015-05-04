@@ -25,6 +25,7 @@
 #include <vector>
 #include "graphics/Transform.h"
 #include "graphics/Program.h"
+#include <memory>
 
 class Program;
 using glm::vec2;
@@ -39,11 +40,12 @@ protected:
     static Program *m_p;
     GLuint vao;
     int vertices;
-    int m_elements;
+    int m_nbr_elements;
     std::vector<glm::vec3> m_color;
-    std::vector<glm::vec3>
+    std::vector<glm::vec3> m_vertex;
+    std::vector<GLuint> m_elements;
     glm::mat4 model{};
-    Transform m_transform;
+    Transform* m_transform{};
 
 
 
@@ -73,7 +75,11 @@ public:
     void changeColor(glm::vec3 color, bool original= false );
     virtual ~Mesh();
 
-    Transform& transform();
-    void setTransform(const Transform &trans);
+    Transform *transform() const;
+    void setTransform(Transform *trans);
+    std::vector<glm::vec3> vertex() const;
+    void setVertex(const std::vector<glm::vec3> &vertex);
+    std::vector<GLuint> elements() const;
+    void setElements(const std::vector<GLuint> &elements);
 };
 #endif

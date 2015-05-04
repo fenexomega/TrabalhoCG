@@ -44,9 +44,9 @@ Arrow::Arrow(glm::vec3 pos, glm::vec3 color,
     setGlThings(vertex,elements);
 
 //    if(rot.x != 0.0f)
-    m_transform.translate(pos);
+    m_transform->translate(pos);
 
-    m_transform.rotate(rot.x,glm::vec3(rot.y,rot.z,rot.w));
+    m_transform->rotate(rot.x,glm::vec3(rot.y,rot.z,rot.w));
 
 }
 
@@ -71,7 +71,7 @@ void Arrow::VDraw()
     glBindVertexArray(vao);
 
     //  glDrawArrays(GL_TRIANGLES,0,vertices);
-    m_transform.SendToShader();
+    m_transform->SendToShader();
 
     glDrawElements(GL_TRIANGLES,m_nbr_elements - 2,GL_UNSIGNED_INT,0);
     glDrawElements(GL_LINES,m_nbr_elements,GL_UNSIGNED_INT,0);
