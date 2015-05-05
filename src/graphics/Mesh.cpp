@@ -3,6 +3,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "Obj_Loader.h"
 #include <stdexcept>
+#include "utils/Logger.h"
 
 Program *Mesh::m_p;
 
@@ -27,7 +28,8 @@ Mesh::Mesh()
 }
 
 void Mesh::setGlThings(std::vector<vec3> vertex,
-                       std::vector<GLuint> elements,std::vector<vec3> normals)
+                       std::vector<GLuint> elements, std::vector<vec3> normals,
+                       bool haveNormals)
 {
     if(normals.size() == 0)
     {
@@ -78,7 +80,7 @@ void Mesh::setGlThings(std::vector<vec3> vertex,
 
 
     glBindBuffer(GL_ARRAY_BUFFER,vbo[VB_COLORS]);
-    glBufferData(GL_ARRAY_BUFFER,vertices*sizeof(float),m_color.data(),GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER,vertices*sizeof(float),m_color.data(),GL_DYNAMIC_DRAW);
 
     glVertexAttribPointer(1,3,GL_FLOAT,GL_FALSE,3*sizeof(float),0);
     glEnableVertexAttribArray(1);
@@ -93,6 +95,17 @@ void Mesh::setGlThings(std::vector<vec3> vertex,
 
     glVertexAttribPointer(2,3,GL_FLOAT,GL_FALSE,3*sizeof(float),0);
     glEnableVertexAttribArray(2);
+
+
+// THIS NEVER WORKED
+//    glBindBuffer(GL_ARRAY_BUFFER,vbo[VB_BOOL_NORMALS]);
+//    glBufferData(GL_ARRAY_BUFFER,sizeof(GLint),&aux,GL_STATIC_DRAW);
+////    glVertexAttribPointer(3,1,GL_INT,GL_FALSE,sizeof(GLint),0);
+//        glVertexAttribIPointer(3,1,GL_INT,0,&aux);
+
+//    glEnableVertexAttribArray(3);
+
+
 
 
     glBindVertexArray(0);
@@ -128,8 +141,8 @@ void Mesh::setTransform(Transform *trans)
 }
 
 
-Mesh::Mesh(std::vector<vec3> vertex,std::vector<GLfloat> colors,
-           std::vector<GLuint> elements)
+Mesh::Mesh(std::vector<vec3> vertex, std::vector<GLfloat> colors,
+           std::vector<GLuint> elements, bool haveNormals)
 {
     m_transform = new Transform;
 
@@ -139,7 +152,7 @@ Mesh::Mesh(std::vector<vec3> vertex,std::vector<GLfloat> colors,
 }
 
 Mesh::Mesh(std::vector<vec3> vertex, glm::vec3 color,
-           std::vector<GLuint> elements)
+           std::vector<GLuint> elements, bool haveNormals)
 {
     m_transform = new Transform;
 
@@ -149,7 +162,7 @@ Mesh::Mesh(std::vector<vec3> vertex, glm::vec3 color,
     setGlThings(vertex,elements);
 }
 
-Mesh::Mesh(std::string modelFile, glm::vec3 color)
+Mesh::Mesh(std::string modelFile, glm::vec3 color, bool haveNormals)
 {
     m_transform = new Transform;
 
@@ -193,7 +206,7 @@ void Mesh::changeColor(glm::vec3 color, bool original )
     }
     glBindVertexArray(vao);
     glBindBuffer(GL_ARRAY_BUFFER,vbo[VB_COLORS]);
-    glBufferData(GL_ARRAY_BUFFER,vertices*sizeof(float),t_colors.data(),GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER,vertices*sizeof(float),t_colors.data(),GL_DYNAMIC_DRAW);
     glBindVertexArray(0);
 }
 

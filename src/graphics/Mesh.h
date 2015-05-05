@@ -36,7 +36,9 @@ class Mesh
 protected:
     Mesh();
     void setGlThings(std::vector<vec3> vertex,
-                     std::vector<GLuint> elements, std::vector<glm::vec3> normals = std::vector<vec3>());
+                     std::vector<GLuint> elements,
+                     std::vector<glm::vec3> normals = std::vector<vec3>(),
+                     bool haveNormals = true);
     static Program *m_p;
     GLuint vao;
     int vertices;
@@ -46,6 +48,7 @@ protected:
     std::vector<GLuint> m_elements;
     glm::mat4 model{};
     Transform* m_transform{};
+    bool m_haveNormals;
 
 
 
@@ -58,16 +61,19 @@ private:
 		VB_COLORS,
         VB_ELEMENTS,
         VB_NORMALS,
-		VB_BUFFERS
+        VB_BOOL_NORMALS,
+        VB_BUFFERS
 	};
 	GLuint vbo[VB_BUFFERS];
 public:
     Mesh& operator=(Mesh& v);
     Mesh(const Mesh &mesh);
 
-    Mesh(std::vector<vec3> vertex, std::vector<GLfloat> colors, std::vector<GLuint> elements);
-    Mesh(std::vector<vec3> vertex, glm::vec3 colors, std::vector<GLuint> elements);
-    Mesh(std::string modelFile, glm::vec3 color);
+    Mesh(std::vector<vec3> vertex, std::vector<GLfloat> colors,
+         std::vector<GLuint> elements, bool haveNormals = true);
+    Mesh(std::vector<vec3> vertex, glm::vec3 colors,
+         std::vector<GLuint> elements,bool haveNormals = true);
+    Mesh(std::string modelFile, glm::vec3 color, bool haveNormals = true);
 
     virtual void VUpdate();
     virtual void VDraw();

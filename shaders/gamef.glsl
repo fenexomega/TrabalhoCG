@@ -3,8 +3,12 @@
 
 in vec4 outColor;
 in vec4 outNormal;
-out vec4 finalColor;
+in float outHaveNormals;
+
 layout(location = 3) uniform vec4 LightDir1;
+out vec4 finalColor;
+
+
 
 void main(void)
 {
