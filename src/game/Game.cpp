@@ -14,6 +14,7 @@
 #include "objects/Quarto.h"
 
 #include <graphics/Light.h>
+#include "game/GameInput.h"
 
 std::ostream& operator<<(std::ostream& os, glm::vec2 vec)
 {
@@ -46,8 +47,10 @@ void Game::init()
 
 //    meshes.push_back(new Box(vec3(1.0,1.0,1.0),vec3(0,0.5,0.5)));
 //    meshes.push_back(new Square(glm::vec2(1.0,1.0),vec3(0.5,0.5,0),vec3(0,0,-2)));
-    meshes.push_back(new Quarto);
+//    meshes.push_back(new Quarto);
 
+    Quarto *q = new Quarto;
+    meshes = q->meshes();
 
 
     cam = new Camera(vec3(0,0.5,3.0f),vec3(0,0.5,0),vec3(0,1,0),70.0f);
@@ -60,7 +63,9 @@ void Game::update(double delta)
     cam->Update();
 
     auto mouseWheel = sysInput::getMouseWheel();
+    static GameInput gi(meshes);
 //    LOG(mouseWheel);
+    gi.Update();
 
     if(sysInput::isKeyPressed(SDL_SCANCODE_W))
         cam->Move(0,0,-0.02f);
@@ -83,9 +88,9 @@ void Game::update(double delta)
     if(sysInput::isKeyDown(SDL_SCANCODE_F6))
         cam->changePerspective();
 
-    if((sysInput::isKeyPressed(SDL_SCANCODE_PAGEUP)))
+    if((sysInput::isKeyPressed(SDL_SCANCODE_MINUS)))
         cam->setFOV(cam->FOV() + 0.5f);
-    if(sysInput::isKeyPressed(SDL_SCANCODE_PAGEDOWN))
+    if(sysInput::isKeyPressed(SDL_SCANCODE_EQUALS))
         cam->setFOV(cam->FOV() - 0.5f);
 
 

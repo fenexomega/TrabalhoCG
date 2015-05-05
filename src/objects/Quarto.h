@@ -21,6 +21,7 @@ public:
     // Mesh interface
 public:
     void VUpdate();
+    std::vector<Mesh *> meshes() const;
 };
 
 #endif // QUARTO_H

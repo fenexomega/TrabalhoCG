@@ -9,6 +9,11 @@
 #define TAM_LADRILHO 0.32f
 #define ALTURA 2.0f
 
+
+std::vector<Mesh *> Quarto::meshes() const
+{
+    return m_meshes;
+}
 Quarto::Quarto()
 {
     m_meshes.push_back(new Square(vec2(9*TAM_LADRILHO,27*TAM_LADRILHO),vec3(1.0f,1.0f,1.0f)) );
