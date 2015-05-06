@@ -3,8 +3,8 @@
 
 in vec4 outColor;
 in vec4 outNormal;
-in float outHaveNormals;
 
+layout(location = 4) uniform int haveNormals;
 layout(location = 3) uniform vec4 LightDir1;
 out vec4 finalColor;
 
@@ -12,6 +12,13 @@ out vec4 finalColor;
 
 void main(void)
 {
-    finalColor = outColor * clamp(dot(-LightDir1,outNormal),0.2,1.0) ;
+    if(haveNormals == 1)
+    {
+        finalColor = outColor * clamp(dot(-LightDir1,outNormal),0.2,1.0) ;
+
+        return;
+    }
+    finalColor = outColor;
+
 }
 

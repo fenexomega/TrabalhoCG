@@ -48,20 +48,13 @@ protected:
     std::vector<GLuint> m_elements;
     glm::mat4 model{};
     Transform* m_transform{};
-    bool m_haveNormals;
-
-
-
+    GLint m_haveNormals;
 private:
-
-	
-
 	enum {
 		VB_VERTEX,
 		VB_COLORS,
         VB_ELEMENTS,
         VB_NORMALS,
-        VB_BOOL_NORMALS,
         VB_BUFFERS
 	};
 	GLuint vbo[VB_BUFFERS];
@@ -70,10 +63,10 @@ public:
     Mesh(const Mesh &mesh);
 
     Mesh(std::vector<vec3> vertex, std::vector<GLfloat> colors,
-         std::vector<GLuint> elements, bool haveNormals = true);
+         std::vector<GLuint> elements);
     Mesh(std::vector<vec3> vertex, glm::vec3 colors,
-         std::vector<GLuint> elements,bool haveNormals = true);
-    Mesh(std::string modelFile, glm::vec3 color, bool haveNormals = true);
+         std::vector<GLuint> elements);
+    Mesh(std::string modelFile, glm::vec3 color);
 
     virtual void VUpdate();
     virtual void VDraw();

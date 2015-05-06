@@ -31,20 +31,24 @@ void Mesh::setGlThings(std::vector<vec3> vertex,
                        std::vector<GLuint> elements, std::vector<vec3> normals,
                        bool haveNormals)
 {
-    if(normals.size() == 0)
+    m_haveNormals = haveNormals;
+    if(haveNormals)
     {
-        vec3 aux,v1,v2,v3;
-        for(uint i = 0; i < elements.size(); i += 3)
+        if(normals.size() == 0)
         {
-            v1 = vertex[elements[i]];
-            v2 = vertex[elements[i+1]];
-            v3 = vertex[elements[i+2]];
+            vec3 aux,v1,v2,v3;
+            for(uint i = 0; i < elements.size(); i += 3)
+            {
+                v1 = vertex[elements[i]];
+                v2 = vertex[elements[i+1]];
+                v3 = vertex[elements[i+2]];
 
-            aux = glm::cross((v2 - v1),(v3 - v1));
-            aux = glm::normalize(aux);
-            normals.push_back(aux);
-            normals.push_back(aux);
-            normals.push_back(aux);
+                aux = glm::cross((v2 - v1),(v3 - v1));
+                aux = glm::normalize(aux);
+                normals.push_back(aux);
+                normals.push_back(aux);
+                normals.push_back(aux);
+            }
         }
     }
 
@@ -104,10 +108,6 @@ void Mesh::setGlThings(std::vector<vec3> vertex,
 //        glVertexAttribIPointer(3,1,GL_INT,0,&aux);
 
 //    glEnableVertexAttribArray(3);
-
-
-
-
     glBindVertexArray(0);
 }
 std::vector<GLuint> Mesh::elements() const
@@ -142,7 +142,7 @@ void Mesh::setTransform(Transform *trans)
 
 
 Mesh::Mesh(std::vector<vec3> vertex, std::vector<GLfloat> colors,
-           std::vector<GLuint> elements, bool haveNormals)
+           std::vector<GLuint> elements)
 {
     m_transform = new Transform;
 
@@ -152,7 +152,7 @@ Mesh::Mesh(std::vector<vec3> vertex, std::vector<GLfloat> colors,
 }
 
 Mesh::Mesh(std::vector<vec3> vertex, glm::vec3 color,
-           std::vector<GLuint> elements, bool haveNormals)
+           std::vector<GLuint> elements)
 {
     m_transform = new Transform;
 
@@ -162,7 +162,7 @@ Mesh::Mesh(std::vector<vec3> vertex, glm::vec3 color,
     setGlThings(vertex,elements);
 }
 
-Mesh::Mesh(std::string modelFile, glm::vec3 color, bool haveNormals)
+Mesh::Mesh(std::string modelFile, glm::vec3 color)
 {
     m_transform = new Transform;
 
@@ -218,7 +218,10 @@ void Mesh::VUpdate()
 void Mesh::VDraw()
 {
     m_p->Use();
+
     glBindVertexArray(vao);
+    glUniform1i(4,m_haveNormals);
+
     m_transform->SendToShader();
     glDrawElements(GL_TRIANGLES,m_nbr_elements,GL_UNSIGNED_INT,0);
     glBindVertexArray(0);

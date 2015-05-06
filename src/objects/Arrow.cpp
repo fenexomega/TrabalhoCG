@@ -41,7 +41,7 @@ Arrow::Arrow(glm::vec3 pos, glm::vec3 color,
     for(auto i = 0; i < vertices; ++i)
         m_color.push_back(color);
 
-    setGlThings(vertex,elements);
+    setGlThings(vertex,elements,std::vector<vec3>(),false);
 
 //    if(rot.x != 0.0f)
     m_transform->translate(pos);
@@ -69,6 +69,7 @@ void Arrow::VDraw()
 {
 
     glBindVertexArray(vao);
+    glUniform1i(4,m_haveNormals);
 
     //  glDrawArrays(GL_TRIANGLES,0,vertices);
     m_transform->SendToShader();

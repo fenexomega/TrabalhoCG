@@ -28,7 +28,7 @@ Grid::Grid(glm::vec3 pos, glm::vec2 size, GLuint lineNbr, glm::vec3 color)
     for(auto i = 0; i < vertex.size(); ++i)
         m_color.push_back(color);
     m_transform->translate(pos);
-    setGlThings(vertex,elements,normals);
+    setGlThings(vertex,elements,normals,false);
 }
 
 Grid::~Grid()
@@ -39,6 +39,7 @@ Grid::~Grid()
 void Grid::VDraw()
 {
     glBindVertexArray(vao);
+     glUniform1i(4,m_haveNormals);
     Transform *aux = new Transform;
     *aux = *m_transform;
     m_transform->SendToShader();
