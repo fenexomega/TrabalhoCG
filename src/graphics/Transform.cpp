@@ -14,17 +14,23 @@ vec3 &Transform::pos()
 
 void Transform::setPos(const vec3 &pos)
 {
+
+    m_model = glm::translate(m_model,pos);
     m_pos = pos;
 }
 
 glm::vec3 &Transform::rot()
 {
+
     return m_rot;
 }
 
 void Transform::setRot(const vec3 &rot)
 {
     m_rot = rot;
+    m_model = glm::rotate(m_model,m_rot.x,vec3(1,0,0));
+    m_model = glm::rotate(m_model,m_rot.y,vec3(0,1,0));
+    m_model = glm::rotate(m_model,m_rot.z,vec3(0,0,1));
 }
 
 glm::vec3 &Transform::scale()
@@ -34,6 +40,7 @@ glm::vec3 &Transform::scale()
 
 void Transform::setScale(const vec3 &scale)
 {
+    m_model = glm::scale(m_model,scale);
     m_scale = scale;
 }
 
@@ -47,8 +54,8 @@ Transform::Transform(glm::vec3 _m_pos,
 
 Transform Transform::operator=(const Transform &T)
 {
-        m_model = T.m_model;
-        return *this;
+    m_model = T.m_model;
+    return *this;
 }
 
 glm::mat4 Transform::getMatrix()
@@ -69,36 +76,42 @@ glm::mat4 Transform::getMatrix()
 
 Transform& Transform::rotate(float angle, float x, float y, float z)
 {
+    m_rot += TORAD(angle)*vec3(x,y,z);
     m_model = glm::rotate(m_model,TORAD(angle),vec3(x,y,z));
     return *this;
 }
 
 Transform& Transform::rotate(float angle, glm::vec3 vec)
 {
+    m_rot += TORAD(angle)*vec;
     m_model = glm::rotate(m_model,TORAD(angle),vec);
     return *this;
 }
 
 Transform& Transform::translate(float x, float y, float z)
 {
+    m_pos += vec3(x,y,z);
     m_model = glm::translate(m_model,vec3(x,y,z));
     return *this;
 }
 
 Transform& Transform::translate(glm::vec3 vec)
 {
+    m_pos += vec;
     m_model = glm::translate(m_model,vec);
     return *this;
 }
 
 Transform& Transform::scale(float x, float y, float z)
 {
+    m_scale *= vec3(x,y,z);
     m_model = glm::scale(m_model,vec3(x,y,z));
     return *this;
 }
 
 Transform& Transform::scale(glm::vec3 vec)
 {
+    m_scale *= vec;
     m_model = glm::scale(m_model,vec);
     return *this;
 }

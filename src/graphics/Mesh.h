@@ -45,6 +45,7 @@ protected:
     int m_nbr_elements;
     std::vector<glm::vec3> m_color;
     std::vector<glm::vec3> m_vertex;
+    std::vector<glm::vec3> m_normals;
     std::vector<GLuint> m_elements;
     glm::mat4 model{};
     Transform* m_transform{};
@@ -80,5 +81,7 @@ public:
     void setVertex(const std::vector<glm::vec3> &vertex);
     std::vector<GLuint> elements() const;
     void setElements(const std::vector<GLuint> &elements);
+    std::vector<glm::vec3> normals() const;
+    void setNormals(const std::vector<glm::vec3> &normals);
 };
 #endif
