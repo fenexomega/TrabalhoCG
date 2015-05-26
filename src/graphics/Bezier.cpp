@@ -1,13 +1,14 @@
 #include "Bezier.h"
 
 
-Bezier::Bezier(glm::vec3 control_points[], float t)
+Bezier::Bezier(glm::vec3 control_points[], int t)
 {
     std::vector<glm::vec3> vertex;
     std::vector<GLuint> elements;
     vec3 aux;
     GLuint e = 0;
-    for(float u = 0; u <= 1.0f; u += 1/t)
+    float cof = 1/(float)t;
+    for(float u = 0; u <= 1.0f; u += cof)
     {
         for(int i = 0; i < 3; ++i)
         {

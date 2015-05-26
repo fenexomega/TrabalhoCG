@@ -49,14 +49,14 @@ void Game::init()
         {0.0f,0.0f,0.0f},
         {1.0f,1.0f,0.0f},
         {0.0f,1.0f,1.0f},
-        {0.0f,0.0f,1.0f},
+        {-1.0f,0.0f,1.0f},
     };
 
 
 
 
 
-    etc.push_back(new Bezier(control_points,50.0f));
+    etc.push_back(new Bezier(control_points,150));
     etc.push_back(new CoordinateArrows(vec3(0,0,0)));
 
 //    meshes.push_back(new Box(vec3(1.0,1.0,1.0),vec3(0,0.5,0.5)));

@@ -7,7 +7,7 @@
 class Bezier : public Mesh
 {
 public:
-    Bezier(glm::vec3 control_points[4],float t );
+    Bezier(glm::vec3 control_points[4],int t );
 
     // Mesh interface
 public:
