@@ -24,6 +24,9 @@ public:
 
 private:
     std::vector<Mesh*> meshes;
+    std::vector<Mesh*> sombras;
+    std::vector<Mesh*> etc;
+
     Camera* cam;
 };
 

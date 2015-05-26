@@ -119,6 +119,10 @@ Transform& Transform::scale(glm::vec3 vec)
 Transform& Transform::clear()
 {
     m_model = glm::mat4();
+    m_scale = glm::vec3(1);
+    m_pos = glm::vec3(0);
+    m_rot = glm::vec3(0);
+
     return *this;
 }
 

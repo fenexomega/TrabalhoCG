@@ -6,9 +6,15 @@
 
 class Shadow : public Mesh
 {
+private:
+    Mesh* m_mesh;
 public:
-    Shadow(const Mesh* mesh, vec3 plane, Light l);
+    Shadow(Mesh* mesh, vec3 plane, Light l);
     ~Shadow();
+
+    // Mesh interface
+public:
+    void VUpdate();
 };
 
 #endif // SHADOW_H
