@@ -7,7 +7,7 @@ const string Shader::ReadContentFromFile(string filename)
 	fstream f(filename.c_str());
 	string content,aux;
 
-	while(std::getline(f,aux) != NULL)
+    while(std::getline(f,aux) )
 		content += "\n" + aux;
 
 
