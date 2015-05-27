@@ -15,8 +15,8 @@ void GameInput::Update()
         i = (i+1)%m_meshes.size();
     if(sysInput::isKeyDown(SDL_SCANCODE_PAGEUP))
         i = (i-1) < 0 ? m_meshes.size() - 1 : (i-1);
-
-    m_cm.Update(m_meshes.at(i),i);
+    if(!m_meshes.empty())
+        m_cm.Update(m_meshes.at(i),i);
 }
 
 GameInput::~GameInput()
