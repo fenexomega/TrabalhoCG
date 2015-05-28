@@ -50,7 +50,7 @@ void BezierTest::init()
 
 
 
-    etc.push_back(new Bezier(control_points,20));
+    etc.push_back(new Bezier(control_points,80));
 
 
     etc.push_back(new Grid(vec3(0,0,0),vec2(TAM_LADRILHO,TAM_LADRILHO),27,
