@@ -35,7 +35,7 @@ Spline::Spline(glm::vec3 *ctrlPoints, int numCtrlPoints, int numPoints )
                 _ctrlPoints[k+2].x,_ctrlPoints[k+2].y,_ctrlPoints[k+2].z,1.0f,
                 _ctrlPoints[k+3].x,_ctrlPoints[k+3].y,_ctrlPoints[k+3].z,1.0f};
 
-        pmat = glm::transpose(pmat);
+        pmat = glm::transpose(pmat)/6.0f;
 
 
         for(float u = 0; u < 1.0f; u += coef)
@@ -43,7 +43,7 @@ Spline::Spline(glm::vec3 *ctrlPoints, int numCtrlPoints, int numPoints )
             float u2 = u*u;
             float u3 = u2*u;
             uvec = {u3,u2,u,1.0f};
-            point = (uvec * bspline * pmat)/6.0f;
+            point = (uvec * bspline * pmat);
 
             vertex.push_back(vec3(point.x,point.y,point.z));
             elements.push_back(e++);
