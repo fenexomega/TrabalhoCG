@@ -14,6 +14,7 @@
 #include "objects/Quarto.h"
 #include <graphics/Shadow.h>
 #include "graphics/Bezier.h"
+#include "graphics/Spline.h"
 #include <graphics/Light.h>
 #include "game/GameInput.h"
 #define TAM_LADRILHO 0.32f
@@ -47,11 +48,19 @@ void BezierTest::init()
     };
 
 
+    vec3 control_points1[] = {
+        {0.0f,0.0f,0.0f},
+        {1.0f,1.0f,0.0f},
+        {2.0f,2.0f,0.0f},
+        {3.0f,1.5f,0.0f},
+        {4.0f,3.0f,0.0f},
+        {5.0f,1.0f,0.0f},
+    };
 
 
 
     etc.push_back(new Bezier(control_points,80));
-
+    etc.push_back(new Spline(control_points1,6,15));
 
     etc.push_back(new Grid(vec3(0,0,0),vec2(TAM_LADRILHO,TAM_LADRILHO),27,
                                     vec3(1.f,1.f,1.f)));

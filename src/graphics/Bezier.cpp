@@ -43,7 +43,7 @@ Bezier::Bezier(glm::vec3 ctrl_pts[], int t)
 
         vertex.push_back(aux);
         elements.push_back(e++);
-        m_color.push_back(vec3(1,0,0));
+        m_color.push_back(vec3(1,0,1));
     }
 
     setGlThings(vertex,elements,std::vector<vec3>(),false);
