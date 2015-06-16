@@ -22,6 +22,7 @@ public:
     void Update();
     void Translate(GLfloat x, GLfloat y,GLfloat z);
     void RotateY(GLfloat angle);
+    void setPos(vec3 pos);
     mat4 changePerspective();
 
     void Move(GLfloat right, GLfloat up, GLfloat front);

@@ -17,7 +17,9 @@ private:
 
 public:
     Spline(vec3 * ctrlPoints, int numCtrlPoints, int numPoints);
+    vec3 getPositionAt(float u);
 
+    int numCtrlPoints();
     // Mesh interface
 public:
     void VDraw();

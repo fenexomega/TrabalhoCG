@@ -79,6 +79,7 @@ void Camera::RotateY(GLfloat angle)
 
 }
 
+
 glm::mat4 Camera::changePerspective()
 {
     static bool ortho = true;

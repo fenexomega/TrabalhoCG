@@ -17,9 +17,9 @@ Spline::Spline(glm::vec3 *ctrlPoints, int numCtrlPoints, int numPoints )
     glm::vec4 point;
     glm::vec4 uvec;
     glm::mat4 bspline =    {-1 , 3,-3, 1,
-                             3 ,-6, 3, 0,
+                            3 ,-6, 3, 0,
                             -3 , 0, 3, 0,
-                             1 , 4, 1, 0};
+                            1 , 4, 1, 0};
     //FOR OPENGL
     bspline = glm::transpose(bspline);
 
@@ -54,6 +54,44 @@ Spline::Spline(glm::vec3 *ctrlPoints, int numCtrlPoints, int numPoints )
     }
 
     setGlThings(vertex,elements,std::vector<vec3>(),false);
+}
+
+glm::vec3 Spline::getPositionAt(float u)
+{
+    glm::vec4 uvec, point;
+    glm::mat4 bspline =    {-1 , 3,-3, 1,
+                            3 ,-6, 3, 0,
+                            -3 , 0, 3, 0,
+                            1 , 4, 1, 0};
+    //FOR OPENGL
+    bspline = glm::transpose(bspline);
+
+    glm::mat4 pmat;
+
+    int k = u;
+    u = u - k;
+
+    pmat = {_ctrlPoints[k].x,_ctrlPoints[k].y,_ctrlPoints[k].z,1.0f,
+            _ctrlPoints[k+1].x,_ctrlPoints[k+1].y,_ctrlPoints[k+1].z,1.0f,
+            _ctrlPoints[k+2].x,_ctrlPoints[k+2].y,_ctrlPoints[k+2].z,1.0f,
+            _ctrlPoints[k+3].x,_ctrlPoints[k+3].y,_ctrlPoints[k+3].z,1.0f};
+
+    pmat = glm::transpose(pmat)/6.0f;
+
+
+    float u2 = u*u;
+    float u3 = u2*u;
+    uvec = {u3,u2,u,1.0f};
+    point = (uvec * bspline * pmat);
+
+    return vec3(point.x,point.y,point.z);
+
+
+}
+
+int Spline::numCtrlPoints()
+{
+    return _ctrlPoints.size();
 }
 
 
