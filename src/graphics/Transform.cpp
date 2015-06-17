@@ -44,6 +44,17 @@ void Transform::setScale(const vec3 &scale)
     m_scale = scale;
 }
 
+
+glm::mat4 Transform::getModel() const
+{
+    return m_model;
+}
+
+void Transform::setModel(const glm::mat4 &model)
+{
+    m_model = model;
+}
+
 Transform::Transform(glm::vec3 _m_pos,
                      glm::vec3 _m_rot,
                      glm::vec3 _m_scale) :

@@ -18,7 +18,9 @@ private:
 public:
     Spline(vec3 * ctrlPoints, int numCtrlPoints, int numPoints);
     vec3 getPositionAt(float u);
-
+    vec3 getUpPosition(float u);
+    vec3 getNextPosition(float u);
+    glm::mat4 getTransformMatrix(float u);
     int numCtrlPoints();
     // Mesh interface
 public:

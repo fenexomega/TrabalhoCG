@@ -38,7 +38,7 @@ MontanhaRussa::~MontanhaRussa()
 
 void MontanhaRussa::init()
 {
-	glEnable(GL_DEPTH_TEST);
+    glEnable(GL_DEPTH_TEST);
     glEnable(GL_LINE_SMOOTH);
 
     vec3 control_points[] = {
@@ -50,18 +50,24 @@ void MontanhaRussa::init()
 
 
     vec3 control_points1[] = {
-        {0.0f,0.0f,0.0f},
-        {0.0f,0.0f,0.0f},
-        {1.0f,1.0f,0.0f},
-        {2.0f,2.0f,0.0f},
-        {3.0f,1.5f,0.0f},
-        {4.0f,3.0f,0.0f},
-        {5.0f,1.0f,0.0f},
-        {5.0f,1.0f,6.0f},
-        {5.0f,1.0f,6.0f},
+        {0.0f,0.0f,0.0f}, //0
+        {0.0f,0.0f,0.0f}, //1
+        {1.0f,1.0f,0.0f}, //2
+        {2.0f,2.0f,0.0f}, //3
+        {3.0f,1.5f,0.0f}, //4
+        {4.0f,3.0f,0.0f}, //5
+        {5.0f,3.0f,7.0f}, //6
+        {5.0f,1.0f,6.0f}, //7
+        {5.0f,1.0f,9.0f}, //8
         {5.0f,1.0f,12.0f},
-        {10.0f,9.0f,12.0f},
-        {10.0f,9.0f,12.0f},
+        {5.0f,2.0f,15.0f},
+        {5.0f,9.0f,17.0f},
+        {5.0f,3.0f,17.0f},
+        {7.0f,0.0f,17.0f},
+        {7.0f,9.0f,20.0f},
+        {7.0f,9.0f,20.0f},
+
+
 
 
 
@@ -73,8 +79,8 @@ void MontanhaRussa::init()
     _bspline = new Spline(control_points1,numPoints,15);
     etc.push_back(new Bezier(control_points,80));
     etc.push_back(_bspline);
-
-    etc.push_back(new Grid(vec3(0,0,0),vec2(TAM_LADRILHO,TAM_LADRILHO),27,
+    etc.push_back(new Box(vec3(0.2f,0.2f,0.2f),glm::vec3(1.0,0,0)));
+    etc.push_back(new Grid(vec3(0,0,0),vec2(TAM_LADRILHO,TAM_LADRILHO),500,
                                     vec3(1.f,1.f,1.f)));
 
     cam = new Camera(vec3(0,0.5,3.0f),vec3(0,0.5,0),vec3(0,1,0),70.0f);
@@ -86,14 +92,20 @@ void MontanhaRussa::init()
 
 void MontanhaRussa::update(double delta)
 {
-    static float u = 0.0f;
+    static float u = 0.9f;
     if( u >= _bspline->numCtrlPoints() - 3)
-        u = 0.0f;
+        u = 0.9f;
     delete cam;
-    auto pos = _bspline->getPositionAt(u += 0.01f);
-    cam = new Camera(pos,vec3(0,0,0),vec3(0,1,0),70.0f);
+    auto pos = _bspline->getPositionAt(u);
+    auto center = pos + _bspline->getNextPosition(u);
+    auto up = - _bspline->getUpPosition(u);
+
+    cam = new Camera(pos,center,vec3(0,1,0),70.0f);
+    u += 0.01f;
 
     cam->Update();
+
+    etc[2]->transform()->setModel(_bspline->getTransformMatrix(u + 1));
 
     auto mouseWheel = sysInput::getMouseWheel();
     static GameInput gi(meshes);

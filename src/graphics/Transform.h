@@ -46,5 +46,7 @@ public:
     void setRot(const vec3 &rot);
     vec3& scale();
     void setScale(const vec3 &scale);
+    glm::mat4 getModel() const;
+    void setModel(const glm::mat4 &model);
 };
 #endif // TRANSFORM_H

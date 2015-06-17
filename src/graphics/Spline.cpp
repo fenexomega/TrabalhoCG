@@ -3,6 +3,9 @@
 #include "utils/Logger.h"
 #define CLAMP(A,B) (A) > (B) ? (A) : (B)
 
+
+
+
 Spline::Spline(glm::vec3 *ctrlPoints, int numCtrlPoints, int numPoints )
     : _numPoints(numPoints)
 {
@@ -88,6 +91,84 @@ glm::vec3 Spline::getPositionAt(float u)
 
 
 }
+
+glm::vec3 Spline::getUpPosition(float u)
+{
+    glm::vec4 uvec, point;
+    glm::mat4 bspline =    {-1 , 3,-3, 1,
+                            3 ,-6, 3, 0,
+                            -3 , 0, 3, 0,
+                            1 , 4, 1, 0};
+    //FOR OPENGL
+    bspline = glm::transpose(bspline);
+
+    glm::mat4 pmat;
+
+    int k = u;
+    u = u - k;
+
+    pmat = {_ctrlPoints[k].x,_ctrlPoints[k].y,_ctrlPoints[k].z,1.0f,
+            _ctrlPoints[k+1].x,_ctrlPoints[k+1].y,_ctrlPoints[k+1].z,1.0f,
+            _ctrlPoints[k+2].x,_ctrlPoints[k+2].y,_ctrlPoints[k+2].z,1.0f,
+            _ctrlPoints[k+3].x,_ctrlPoints[k+3].y,_ctrlPoints[k+3].z,1.0f};
+
+    pmat = glm::transpose(pmat)/6.0f;
+
+
+//    float u2 = u*u;
+    uvec = {6.0f*u,2.0f,0.0f,0.0f};
+    point = (uvec * bspline * pmat);
+
+    return vec3(point.x,point.y,point.z);
+}
+
+glm::vec3 Spline::getNextPosition(float u)
+{
+    glm::vec4 uvec, point;
+    glm::mat4 bspline =    {-1 , 3,-3, 1,
+                            3 ,-6, 3, 0,
+                            -3 , 0, 3, 0,
+                            1 , 4, 1, 0};
+    //FOR OPENGL
+    bspline = glm::transpose(bspline);
+
+    glm::mat4 pmat;
+
+    int k = u;
+    u = u - k;
+
+    pmat = {_ctrlPoints[k].x,_ctrlPoints[k].y,_ctrlPoints[k].z,1.0f,
+            _ctrlPoints[k+1].x,_ctrlPoints[k+1].y,_ctrlPoints[k+1].z,1.0f,
+            _ctrlPoints[k+2].x,_ctrlPoints[k+2].y,_ctrlPoints[k+2].z,1.0f,
+            _ctrlPoints[k+3].x,_ctrlPoints[k+3].y,_ctrlPoints[k+3].z,1.0f};
+
+    pmat = glm::transpose(pmat)/6.0f;
+
+
+    float u2 = u*u;
+    uvec = {3*u2,2*u,1.0f,0};
+    point = (uvec * bspline * pmat);
+
+
+    return vec3(point.x,point.y,point.z);
+}
+
+glm::mat4 Spline::getTransformMatrix(float u)
+{
+    auto t = getPositionAt(u);
+    auto z = -getNextPosition(u);
+    auto y = getUpPosition(u);
+    auto x = glm::cross(y,z);
+    y = glm::cross(z,x);
+
+    glm::mat4 mat = {x.x,x.y,x.z,0,
+                     y.x,y.y,y.z,0,
+                     z.x,z.y,z.z,0,
+                     t.x,t.y,t.z,1.0f};
+    return mat;
+}
+
+
 
 int Spline::numCtrlPoints()
 {

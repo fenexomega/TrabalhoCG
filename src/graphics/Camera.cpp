@@ -125,7 +125,7 @@ Camera::Camera(glm::vec3 _eye, glm::vec3 _center, glm::vec3 _up, GLfloat FOV)
 
     view = glm::lookAt(eye,center,up);
 
-    proj = glm::perspective(TORAD(m_FOV), Window::getWidth()/(GLfloat)Window::getHeight(),0.001f,100.0f);
+    proj = glm::perspective(TORAD(m_FOV), Window::getWidth()/(GLfloat)Window::getHeight(),0.1f,50.0f);
 
     glUniformMatrix4fv(projAttrib,1,GL_FALSE,glm::value_ptr(proj));
     glUniformMatrix4fv(viewAttrib,1,GL_FALSE,glm::value_ptr(view));
