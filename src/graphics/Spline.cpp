@@ -115,7 +115,6 @@ glm::vec3 Spline::getUpPosition(float u)
     pmat = glm::transpose(pmat)/6.0f;
 
 
-//    float u2 = u*u;
     uvec = {6.0f*u,2.0f,0.0f,0.0f};
     point = (uvec * bspline * pmat);
 
@@ -156,10 +155,16 @@ glm::vec3 Spline::getNextPosition(float u)
 glm::mat4 Spline::getTransformMatrix(float u)
 {
     auto t = getPositionAt(u);
-    auto z = -getNextPosition(u);
-    auto y = getUpPosition(u);
-    auto x = glm::cross(y,z);
-    y = glm::cross(z,x);
+
+    auto z = glm::normalize(-getNextPosition(u));
+    auto y = vec3(0,1,0); //glm::normalize(getUpPosition(u));
+    auto x = glm::normalize(glm::cross(y,z));
+    y = glm::normalize(glm::cross(z,x));
+
+    LOG(" x = (" << x.x << ", " << x.y << ", " << x.z << " )");
+    LOG(" y = (" << y.x << ", " << y.y << ", " << y.z << " )");
+    LOG(" z = (" << z.x << ", " << z.y << ", " << z.z << " )");
+
 
     glm::mat4 mat = {x.x,x.y,x.z,0,
                      y.x,y.y,y.z,0,

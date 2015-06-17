@@ -79,7 +79,7 @@ void MontanhaRussa::init()
     _bspline = new Spline(control_points1,numPoints,15);
     etc.push_back(new Bezier(control_points,80));
     etc.push_back(_bspline);
-    etc.push_back(new Box(vec3(0.2f,0.2f,0.2f),glm::vec3(1.0,0,0)));
+//    etc.push_back(new Box(vec3(0.2f,0.2f,0.4f),glm::vec3(1.0,0,0),vec3()));
     etc.push_back(new Grid(vec3(0,0,0),vec2(TAM_LADRILHO,TAM_LADRILHO),500,
                                     vec3(1.f,1.f,1.f)));
 
@@ -92,7 +92,14 @@ void MontanhaRussa::init()
 
 void MontanhaRussa::update(double delta)
 {
+
     static float u = 0.9f;
+    static float distance;
+    static vec3 carPos;
+    static float ucar;
+    float auxValueForCarPos = 0.5f;
+
+    // controlar a posição da câmera
     if( u >= _bspline->numCtrlPoints() - 3)
         u = 0.9f;
     delete cam;
@@ -100,12 +107,30 @@ void MontanhaRussa::update(double delta)
     auto center = pos + _bspline->getNextPosition(u);
     auto up = - _bspline->getUpPosition(u);
 
-    cam = new Camera(pos,center,vec3(0,1,0),70.0f);
-    u += 0.01f;
+    cam = new Camera(pos + vec3(0,0.25f,0),center,vec3(0,1,0),70.0f);
 
     cam->Update();
 
-    etc[2]->transform()->setModel(_bspline->getTransformMatrix(u + 1));
+//    distance = 1.0f;
+//    int i = 0;
+//    do
+//    {
+//        ucar = u + auxValueForCarPos;
+//        carPos = _bspline->getPositionAt(ucar);
+//        distance = glm::distance(pos,carPos);
+//        auxValueForCarPos -= 0.001f;
+//        LOG(distance << " | " << i++);
+
+
+
+//    }while(distance > 0.5f);
+
+
+    //mover o carrinho
+//    etc[2]->transform()->setModel(_bspline->getTransformMatrix(u));
+    u += 0.01f;
+
+
 
     auto mouseWheel = sysInput::getMouseWheel();
     static GameInput gi(meshes);
