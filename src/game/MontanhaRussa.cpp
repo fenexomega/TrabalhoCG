@@ -117,7 +117,8 @@ void MontanhaRussa::init()
 void MontanhaRussa::update(double delta)
 {
 
-    static float u = 0.9f;
+    static float initialU = 1.0f;
+    static float u = initialU;
     static float distance;
     static vec3 carPos;
     static float ucar;
@@ -130,7 +131,8 @@ void MontanhaRussa::update(double delta)
 
         // controlar a posição da câmera
         if( u >= _bspline->numCtrlPoints() - 3)
-            u = 0.9f;
+            u = initialU;
+        LOG(int(u));
         auto pos = _bspline->getPositionAt(u);
         auto center = pos + _bspline->getNextPosition(u);
         auto up = - _bspline->getUpPosition(u);
@@ -157,7 +159,7 @@ void MontanhaRussa::update(double delta)
 
 
     //mover o carrinho
-//    etc[0]->transform()->setModel(_bspline->getTransformMatrix(u + 0.5f));
+    etc[0]->transform()->setModel(_bspline->getTransformMatrix(u + 0.5f));
 
 
 
