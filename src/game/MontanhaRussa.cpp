@@ -18,6 +18,7 @@
 #include <graphics/Light.h>
 #include <graphics/Sphere.h>
 #include "game/GameInput.h"
+#include "game/Cylinder.h"
 #define TAM_LADRILHO 0.32f
 #define ALTURA 2.0f
 #define LASTOF(VEC) (VEC[VEC.size()-1])
@@ -65,7 +66,23 @@ void MontanhaRussa::init()
         {5.0f,3.0f,17.0f},
         {7.0f,0.0f,17.0f},
         {7.0f,9.0f,20.0f},
-        {7.0f,9.0f,20.0f},
+        {7.0f,9.0f,23.0f},
+        {7.0f,9.0f,25.0f},
+        {2.0f,9.0f,25.0f},
+        {2.0f,9.0f,28.0f},
+        {3.0f,9.0f,28.0f},
+        {5.0f,9.0f,28.0f},
+        {7.0f,10.0f,28.0f},
+        {8.0f,12.0f,25.0f},
+        {7.0f,11.0f,23.0f},
+        {6.0f,10.0f,23.0f},
+        {0.0f,0.0f,0.0f}, //0
+        {1.0f,1.0f,0.0f}, //2
+        {2.0f,2.0f,0.0f}, //3
+
+
+
+
 
 
 
@@ -77,15 +94,22 @@ void MontanhaRussa::init()
 
     int numPoints = sizeof(control_points1)/sizeof(float)/3;
     _bspline = new Spline(control_points1,numPoints,15);
-    etc.push_back(new Bezier(control_points,80));
-    etc.push_back(_bspline);
-//    etc.push_back(new Box(vec3(0.2f,0.2f,0.4f),glm::vec3(1.0,0,0),vec3()));
-    etc.push_back(new Grid(vec3(0,0,0),vec2(TAM_LADRILHO,TAM_LADRILHO),500,
-                                    vec3(1.f,1.f,1.f)));
+//    etc.push_back(new Bezier(control_points,80));
+//    etc.push_back(_bspline);
+//    etc.push_back(new Box(vec3(0.2f,0.2f,0.2f),glm::vec3(1.0,0,0),vec3()));
+
+    for(float u = 1.0f; u <= _bspline->numCtrlPoints() - 3; u += 1/15.0f)
+    {
+        _cylinder = new Cylinder(0.5f,0.5f,8.0f,20.0f);
+        _cylinder->transform()->setModel(_bspline->getTransformMatrix(u));
+        etc.push_back(_cylinder);
+    }
+//    etc.push_back(new Grid(vec3(0,0,0),vec2(TAM_LADRILHO,TAM_LADRILHO),500,
+//                                    vec3(1.f,1.f,1.f)));
 
     cam = new Camera(vec3(0,0.5,3.0f),vec3(0,0.5,0),vec3(0,1,0),70.0f);
 
-    Light luz {glm::vec4(0,-1,0,0)};
+    Light luz {glm::vec4(0,0,1,0)};
 
 
 }
@@ -97,18 +121,24 @@ void MontanhaRussa::update(double delta)
     static float distance;
     static vec3 carPos;
     static float ucar;
-    float auxValueForCarPos = 0.5f;
+    static bool carMoving = true;
 
-    // controlar a posição da câmera
-    if( u >= _bspline->numCtrlPoints() - 3)
-        u = 0.9f;
-    delete cam;
-    auto pos = _bspline->getPositionAt(u);
-    auto center = pos + _bspline->getNextPosition(u);
-    auto up = - _bspline->getUpPosition(u);
 
-    cam = new Camera(pos + vec3(0,0.25f,0),center,vec3(0,1,0),70.0f);
+    if(carMoving)
+    {
+        float auxValueForCarPos = 0.5f;
 
+        // controlar a posição da câmera
+        if( u >= _bspline->numCtrlPoints() - 3)
+            u = 0.9f;
+        auto pos = _bspline->getPositionAt(u);
+        auto center = pos + _bspline->getNextPosition(u);
+        auto up = - _bspline->getUpPosition(u);
+
+            delete cam;
+            cam = new Camera(pos + vec3(0,0.25f,0),center,vec3(0,1,0),70.0f);
+        u += 0.01f;
+    }
     cam->Update();
 
 //    distance = 1.0f;
@@ -127,8 +157,7 @@ void MontanhaRussa::update(double delta)
 
 
     //mover o carrinho
-//    etc[2]->transform()->setModel(_bspline->getTransformMatrix(u));
-    u += 0.01f;
+//    etc[0]->transform()->setModel(_bspline->getTransformMatrix(u + 0.5f));
 
 
 
@@ -162,6 +191,9 @@ void MontanhaRussa::update(double delta)
         cam->setFOV(cam->FOV() + 0.5f);
     if(sysInput::isKeyPressed(SDL_SCANCODE_EQUALS))
         cam->setFOV(cam->FOV() - 0.5f);
+
+    if(sysInput::isKeyDown(SDL_SCANCODE_C))
+        carMoving = !carMoving;
 
 
     if(sysInput::isKeyDown(SDL_SCANCODE_F5))

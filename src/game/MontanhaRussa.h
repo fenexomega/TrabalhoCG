@@ -5,6 +5,7 @@
 
 #include <vector>
 
+class Cylinder;
 class Spline;
 class Mesh;
 class Camera;
@@ -28,6 +29,7 @@ private:
     std::vector<Mesh*> sombras;
     std::vector<Mesh*> etc;
 
+    Cylinder* _cylinder;
     Spline* _bspline;
     Camera* cam;
 };

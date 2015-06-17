@@ -56,7 +56,7 @@ void Game::init()
 
 
 
-    etc.push_back(new Bezier(control_points,500));
+//    etc.push_back(new Bezier(control_points,500));
     etc.push_back(new CoordinateArrows(vec3(0,0,0)));
 
 //    meshes.push_back(new Box(vec3(1.0,1.0,1.0),vec3(0,0.5,0.5)));
