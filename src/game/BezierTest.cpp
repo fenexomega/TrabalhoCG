@@ -58,7 +58,14 @@ void BezierTest::init()
         {4.0f,3.0f,0.0f},
         {5.0f,1.0f,0.0f},
         {5.0f,1.0f,6.0f},
-        {5.0f,1.0f,6.0f}
+        {6.0f,-2.0f,3.0f},
+        {10.0f,1.0f,6.0f},
+        {13.0f,1.0f,8.0f},
+        {13.0f,1.0f,8.0f},
+
+
+
+
 
 
     };
@@ -66,10 +73,10 @@ void BezierTest::init()
     int numPoints = sizeof(control_points1)/sizeof(float)/3;
 
     etc.push_back(new Bezier(control_points,80));
-    etc.push_back(new Spline(control_points1,numPoints,15));
+    etc.push_back(new Spline(control_points1,numPoints,30));
 
-    etc.push_back(new Grid(vec3(0,0,0),vec2(TAM_LADRILHO,TAM_LADRILHO),27,
-                                    vec3(1.f,1.f,1.f)));
+//    etc.push_back(new Grid(vec3(0,0,0),vec2(TAM_LADRILHO,TAM_LADRILHO),27,
+//                                    vec3(1.f,1.f,1.f)));
 
     cam = new Camera(vec3(0,0.5,3.0f),vec3(0,0.5,0),vec3(0,1,0),70.0f);
 
