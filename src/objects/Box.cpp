@@ -5,50 +5,115 @@
 
 Box::Box(glm::vec3 size, glm::vec3 color, glm::vec3 pos, bool haveNormals)
 {
-    std::vector<vec3> vertex;
-    for(int i = 0; i < 2; ++i)
-    {
-        vertex.push_back(vec3(-size.x/2,size.y,size.z/2));
-        vertex.push_back(vec3(-size.x/2,0,size.z/2));
-        vertex.push_back(vec3( size.x/2,0,size.z/2));
-        vertex.push_back(vec3( size.x/2,size.y,size.z/2));
 
-        size.z *= -1;
-    }
 
-    std::vector<GLuint> elements = {
-       //Front
-       0,1,2,
-       2,3,0,
+    std::vector<vec3> vertex = {
+        vec3(-0.5f, -0.5f, -0.5f),
+        vec3( 0.5f, -0.5f, -0.5f),
+        vec3( 0.5f,  0.5f, -0.5f),
+        vec3( 0.5f,  0.5f, -0.5f),
+        vec3(-0.5f,  0.5f, -0.5f),
+        vec3(-0.5f, -0.5f, -0.5f),
 
-       //Right
-       3,2,6,
-       6,7,3,
+        vec3(-0.5f, -0.5f,  0.5f),
+        vec3( 0.5f, -0.5f,  0.5f),
+        vec3( 0.5f,  0.5f,  0.5f),
+        vec3( 0.5f,  0.5f,  0.5f),
+        vec3(-0.5f,  0.5f,  0.5f),
+        vec3(-0.5f, -0.5f,  0.5f),
 
-       //Down
-       5,6,2,
-       2,1,5,
+        vec3(-0.5f,  0.5f,  0.5f),
+        vec3(-0.5f,  0.5f, -0.5f),
+        vec3(-0.5f, -0.5f, -0.5f),
+        vec3(-0.5f, -0.5f, -0.5f),
+        vec3(-0.5f, -0.5f,  0.5f),
+        vec3(-0.5f,  0.5f,  0.5f),
 
-       //Left
-       4,5,1,
-       1,0,4,
+        vec3( 0.5f,  0.5f,  0.5f),
+        vec3( 0.5f,  0.5f, -0.5f),
+        vec3( 0.5f, -0.5f, -0.5f),
+        vec3( 0.5f, -0.5f, -0.5f),
+        vec3( 0.5f, -0.5f,  0.5f),
+        vec3( 0.5f,  0.5f,  0.5f),
 
-       //Up
-       4,0,3,
-       3,7,4,
+        vec3(-0.5f, -0.5f, -0.5f),
+        vec3( 0.5f, -0.5f, -0.5f),
+        vec3( 0.5f, -0.5f,  0.5f),
+        vec3( 0.5f, -0.5f,  0.5f),
+        vec3(-0.5f, -0.5f,  0.5f),
+        vec3(-0.5f, -0.5f, -0.5f),
 
-       //Back
-       7,6,5,
-       5,4,7
+        vec3(-0.5f,  0.5f, -0.5f),
+        vec3( 0.5f,  0.5f, -0.5f),
+        vec3( 0.5f,  0.5f,  0.5f),
+        vec3( 0.5f,  0.5f,  0.5f),
+        vec3(-0.5f,  0.5f,  0.5f),
+        vec3(-0.5f,  0.5f, -0.5f)
+    };
+
+    std::vector<vec3> normals = {
+        vec3(0.0f,  0.0f, -1.0f),
+        vec3(0.0f,  0.0f, -1.0f),
+        vec3(0.0f,  0.0f, -1.0f),
+        vec3(0.0f,  0.0f, -1.0f),
+        vec3(0.0f,  0.0f, -1.0f),
+        vec3(0.0f,  0.0f, -1.0f),
+
+        vec3(0.0f,  0.0f,  1.0f),
+        vec3(0.0f,  0.0f,  1.0f),
+        vec3(0.0f,  0.0f,  1.0f),
+        vec3(0.0f,  0.0f,  1.0f),
+        vec3(0.0f,  0.0f,  1.0f),
+        vec3(0.0f,  0.0f,  1.0f),
+
+        vec3(-1.0f,  0.0f,  0.0f),
+        vec3(-1.0f,  0.0f,  0.0f),
+        vec3(-1.0f,  0.0f,  0.0f),
+        vec3(-1.0f,  0.0f,  0.0f),
+        vec3(-1.0f,  0.0f,  0.0f),
+        vec3(-1.0f,  0.0f,  0.0f),
+
+        vec3(1.0f,  0.0f,  0.0f),
+        vec3(1.0f,  0.0f,  0.0f),
+        vec3(1.0f,  0.0f,  0.0f),
+        vec3(1.0f,  0.0f,  0.0f),
+        vec3(1.0f,  0.0f,  0.0f),
+        vec3(1.0f,  0.0f,  0.0f),
+
+        vec3(0.0f,  -1.0f,  0.0f),
+        vec3(0.0f,  -1.0f,  0.0f),
+        vec3(0.0f,  -1.0f,  0.0f),
+        vec3(0.0f,  -1.0f,  0.0f),
+        vec3(0.0f,  -1.0f,  0.0f),
+        vec3(0.0f,  -1.0f,  0.0f),
+
+        vec3(0.0f,  1.0f,  0.0f),
+        vec3(0.0f,  1.0f,  0.0f),
+        vec3(0.0f,  1.0f,  0.0f),
+        vec3(0.0f,  1.0f,  0.0f),
+        vec3(0.0f,  1.0f,  0.0f),
+        vec3(0.0f,  1.0f,  0.0f),
+
+
+
+
 
     };
 
-    for(int i = 0; i < VERTICES; ++i)
+
+    std::vector<GLuint> elements;
+    for(int i = 0; i < vertex.size(); ++i)
+        elements.push_back(i);
+
+    for(int i = 0; i < vertex.size(); ++i)
         m_color.push_back(color);
+
     this->m_transform->translate(pos);
 
+    m_transform->scale(size);
+
     if(haveNormals)
-        setGlThings(vertex,elements);
+        setGlThings(vertex,elements,normals);
     else
         setGlThings(vertex,elements,std::vector<vec3>(),false);
 
@@ -58,5 +123,23 @@ Box::Box(glm::vec3 size, glm::vec3 color, glm::vec3 pos, bool haveNormals)
 Box::~Box()
 {
 
+}
+
+void Box::VUpdate()
+{
+
+}
+
+void Box::VDraw()
+{
+    m_p->Use();
+
+    glBindVertexArray(vao);
+    glUniform1i(4,m_haveNormals);
+
+    m_transform->SendToShader();
+    glDrawArrays(GL_TRIANGLES,0,vertices);
+    //    glDrawElements(GL_TRIANGLES,m_nbr_elements,GL_UNSIGNED_INT,0);
+    glBindVertexArray(0);
 }
 
