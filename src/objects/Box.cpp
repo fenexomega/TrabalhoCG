@@ -105,8 +105,8 @@ Box::Box(glm::vec3 size, glm::vec3 color,
 
 
     std::vector<GLuint> elements;
-    for(int i = 0; i < vertex.size(); ++i)
-        elements.push_back(i);
+//    for(int i = 0; i < vertex.size(); ++i)
+//        elements.push_back(i);
 
     for(int i = 0; i < vertex.size(); ++i)
         m_color.push_back(color);

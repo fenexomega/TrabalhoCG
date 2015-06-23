@@ -36,18 +36,32 @@ void Mesh::setGlThings(std::vector<vec3> vertex,
     {
         LOG("Tamanho Vertex = " << vertex.size());
         vec3 aux,v1,v2,v3;
-        for(uint i = 0; i < elements.size(); i += 3)
-        {
-            v1 = vertex[elements[i]];
-            v2 = vertex[elements[i+1]];
-            v3 = vertex[elements[i+2]];
+        if(elements.empty())
+            for(int i = 0; i < vertex.size(); i += 3)
+            {
+                v1 = vertex[i];
+                v2 = vertex[i+1];
+                v3 = vertex[i+2];
 
-            aux = glm::cross((v2 - v1),(v3 - v1));
-            aux = glm::normalize(aux);
-            normals.push_back(aux);
-            normals.push_back(aux);
-            normals.push_back(aux);
-        }
+                aux = glm::cross((v2 - v1),(v3 - v1));
+                aux = glm::normalize(aux);
+                normals.push_back(aux);
+                normals.push_back(aux);
+                normals.push_back(aux);
+            }
+        else
+            for(uint i = 0; i < elements.size(); i += 3)
+            {
+                v1 = vertex[elements[i]];
+                v2 = vertex[elements[i+1]];
+                v3 = vertex[elements[i+2]];
+
+                aux = glm::cross((v2 - v1),(v3 - v1));
+                aux = glm::normalize(aux);
+                normals.push_back(aux);
+                normals.push_back(aux);
+                normals.push_back(aux);
+            }
     }
     m_normals = normals;
     m_vertex = vertex;
@@ -81,7 +95,7 @@ void Mesh::setGlThings(std::vector<vec3> vertex,
 
     glGenBuffers(VB_BUFFERS,vbo);
     glBindBuffer(GL_ARRAY_BUFFER,vbo[VB_VERTEX]);
-    glBufferData(GL_ARRAY_BUFFER,vertices*3*sizeof(float),
+    glBufferData(GL_ARRAY_BUFFER,vertices*sizeof(float),
                  vertex.data(),GL_STATIC_DRAW);
     
     glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,3*sizeof(float),0);
@@ -89,7 +103,7 @@ void Mesh::setGlThings(std::vector<vec3> vertex,
 
 
     glBindBuffer(GL_ARRAY_BUFFER,vbo[VB_COLORS]);
-    glBufferData(GL_ARRAY_BUFFER,vertices*3*sizeof(float),
+    glBufferData(GL_ARRAY_BUFFER,vertices*sizeof(float),
                  m_color.data(),GL_STATIC_DRAW);
     glVertexAttribPointer(1,3,GL_FLOAT,GL_FALSE,
                           3*sizeof(float),0);

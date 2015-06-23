@@ -67,9 +67,11 @@ void FinalGame::init()
 
     //COLOCAR OBJETOS
     meshes.push_back(new Box(vec3(1.0f,1.0f,1.0f),vec3(1.0f,0,0)));
-    meshes[0]->transform()->translate(-1,0,-2.0f);
+    meshes[0]->transform()->translate(-1,1.0,-2.0f);
+    meshes.push_back(new Box(vec3(1.0f,1.0f,1.0f),vec3(0.0f,0.3f,0),vec3(-2,0.5,1.0)));
 
-    meshes.push_back(new Light(glm::vec3(0,1.5f,1.0f)));
+
+    meshes.push_back(new Light(glm::vec3(0,2.5f,0.0f)));
 }
 
 void FinalGame::update(double delta)
@@ -77,9 +79,7 @@ void FinalGame::update(double delta)
     cam->Update();
 
     auto mouseWheel = sysInput::getMouseWheel();
-    static GameInput gi(meshes);
 //    LOG(mouseWheel);
-    gi.Update();
 
     if(sysInput::isKeyPressed(SDL_SCANCODE_W))
         cam->Move(0,0,-0.02f);
@@ -89,6 +89,10 @@ void FinalGame::update(double delta)
         cam->Move(-0.02f,0,0);
     if(sysInput::isKeyPressed(SDL_SCANCODE_D))
         cam->Move(0.02f,0,0);
+    if(sysInput::isKeyPressed(SDL_SCANCODE_LCTRL))
+        cam->Move(0,-0.02f,0);
+    if(sysInput::isKeyPressed(SDL_SCANCODE_SPACE))
+        cam->Move(0,0.02f,0);
 
     if(sysInput::isKeyPressed(SDL_SCANCODE_LEFT))
         cam->RotateY(-0.02f);
@@ -98,6 +102,8 @@ void FinalGame::update(double delta)
         cam->RotateX(-0.01f);
     if(sysInput::isKeyPressed(SDL_SCANCODE_DOWN))
         cam->RotateX(0.01f);
+
+
 
     if(sysInput::isKeyDown(SDL_SCANCODE_F6))
         cam->changePerspective();
