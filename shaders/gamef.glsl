@@ -11,7 +11,7 @@ struct dirLight{
 };
 
 in vec4 outColor;
-in vec4 outNormal;
+in vec3 outNormal;
 in vec3 FragPos;
 
 layout(location = 4) uniform int haveNormals;
