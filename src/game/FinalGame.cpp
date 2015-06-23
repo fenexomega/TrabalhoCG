@@ -40,15 +40,7 @@ void FinalGame::init()
 	glEnable(GL_DEPTH_TEST);
     glEnable(GL_LINE_SMOOTH);
 
-
-    vec3 control_points[] = {
-        {0.0f,0.0f,0.0f},
-        {1.0f,1.0f,0.0f},
-        {0.0f,1.0f,1.0f},
-        {-1.0f,0.0f,1.0f},
-    };
-
-
+    float altura = 2.0f;
 
 
 
@@ -59,26 +51,35 @@ void FinalGame::init()
 //    meshes.push_back(new Square(glm::vec2(1.0,1.0),vec3(0.5,0.5,0),vec3(0,0,-2)));
 //    meshes.push_back(new Quarto);
 
-    etc.push_back(new Grid(vec3(0,0,0),vec2(TAM_LADRILHO,TAM_LADRILHO),27,
-                                    vec3(1.f,1.f,1.f)));
+//    etc.push_back(new Grid(vec3(0,0,0),vec2(TAM_LADRILHO,TAM_LADRILHO),27,
+//                                    vec3(1.f,1.f,1.f)));
 
-    cam = new Camera(vec3(0,0.5,3.0f),vec3(0,0.5,0),vec3(0,1,0),70.0f);
 
+//    PAREDES
+    meshes.push_back(new Box(vec3(10.0f,altura,0.01f),vec3(0.0f,0.3f,1),vec3(0,altura/2,5)));
+    meshes.push_back(new Box(vec3(10.0f,altura,0.01f),vec3(0.0f,0.3f,1),vec3(0,altura/2,-5)));
+
+
+    meshes.push_back(new Box(vec3(10.0f,0.01f,10.0f),vec3(0.0f,0.3f,1),vec3(0,altura,0)));
+    meshes.push_back(new Box(vec3(10.0f,0.01f,10.0f),vec3(1.0f,1.f,1)));
 
     //COLOCAR OBJETOS
-    meshes.push_back(new Box(vec3(1.0f,1.0f,1.0f),vec3(1.0f,0,0)));
-    meshes[0]->transform()->translate(-1,1.0,-2.0f);
+
+    meshes.push_back(new Box(vec3(1.0f,1.0f,1.0f),vec3(1.0f,0,0),vec3(-1,0.5f,-2.0f)));
     meshes.push_back(new Box(vec3(1.0f,1.0f,1.0f),vec3(0.0f,0.3f,0),vec3(-2,0.5,1.0)));
 
 
-    meshes.push_back(new Light(glm::vec3(0,2.5f,0.0f)));
+    etc.push_back(new Light(glm::vec3(0,altura - 0.2f,0.0f),vec3(2.0f,0.3f,1.0f)));
+
+    // A CAMERA TEM DE IR POR ÚLTIMO, POIS ELA USA O SHADER JÁ SETADO
+    cam = new Camera(vec3(0,0.5,3.0f),vec3(0,0.5,0),vec3(0,1,0),70.0f);
+
 }
 
 void FinalGame::update(double delta)
 {
     cam->Update();
 
-    auto mouseWheel = sysInput::getMouseWheel();
 //    LOG(mouseWheel);
 
     if(sysInput::isKeyPressed(SDL_SCANCODE_W))
@@ -114,12 +115,6 @@ void FinalGame::update(double delta)
         cam->setFOV(cam->FOV() - 0.5f);
 
 
-    if(sysInput::isKeyDown(SDL_SCANCODE_F5))
-    {
-        static bool b = true;
-        meshes.at(0)->changeColor(glm::vec3(1.0,1.0,1.0),b = !b);
-
-    }
 
 
     for(auto m : meshes)

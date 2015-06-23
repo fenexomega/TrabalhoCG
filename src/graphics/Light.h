@@ -10,13 +10,13 @@ class Box;
 class Light : public Mesh
 {
 private:
-    vec3 m_dir;
+    vec3 m_pos;
     Box * m_box;
 public:
-    Light(vec3 dir);
+    Light(vec3 pos, vec3 size = vec3(1.0f,1.0f,1.0f));
     ~Light();
-    vec3 dir() const;
-    void setDir(const vec3 &dir);
+    vec3 pos() const;
+    void setDir(const vec3 &pos);
 
     // Mesh interface
 public:

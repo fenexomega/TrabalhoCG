@@ -39,7 +39,7 @@ Grid::~Grid()
 void Grid::VDraw()
 {
     glBindVertexArray(vao);
-     glUniform1i(4,m_haveNormals);
+    glUniform1i(4,m_haveNormals);
     Transform *aux = new Transform;
     *aux = *m_transform;
     m_transform->SendToShader();

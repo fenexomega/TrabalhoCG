@@ -3,23 +3,23 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "objects/Box.h"
 
-vec3 Light::dir() const
+vec3 Light::pos() const
 {
-    return m_dir;
+    return m_pos;
 }
 
 void Light::setDir(const glm::vec3 &dir)
 {
-    m_dir = dir;
+    m_pos = dir;
     glUniform3f(5,dir.x,dir.y,dir.z);
 
 }
-Light::Light(glm::vec3 dir) : Mesh()
+Light::Light(glm::vec3 pos, glm::vec3 size) : Mesh()
 {
-    m_dir = dir;
-    glUniform3f(5,dir.x,dir.y,dir.z);
+    m_pos = pos;
+    glUniform3f(5,pos.x,pos.y,pos.z);
 //    glUniform4fv(3,1,&dir[0]);
-    m_box = new Box(vec3(0.2f),vec3(1.0f),dir,false);
+    m_box = new Box(vec3(0.2,0.2,0.2)*size,vec3(1.0f),pos,false);
 
 }
 
@@ -32,7 +32,7 @@ Light::~Light()
 
 void Light::VUpdate()
 {
-    glUniform3f(5,m_dir.x,m_dir.y,m_dir.z);
+    glUniform3f(5,m_pos.x,m_pos.y,m_pos.z);
     m_box->VUpdate();
 }
 
