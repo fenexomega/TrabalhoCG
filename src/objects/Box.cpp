@@ -3,7 +3,7 @@
 #include <vector>
 #define VERTICES 8
 
-Box::Box(glm::vec3 size, glm::vec3 color,glm::vec3 pos)
+Box::Box(glm::vec3 size, glm::vec3 color, glm::vec3 pos, bool haveNormals)
 {
     std::vector<vec3> vertex;
     for(int i = 0; i < 2; ++i)
@@ -26,31 +26,32 @@ Box::Box(glm::vec3 size, glm::vec3 color,glm::vec3 pos)
        6,7,3,
 
        //Down
-       5,1,2,
-       2,6,5,
+       5,6,2,
+       2,1,5,
 
        //Left
-       0,1,5,
-       5,4,0,
+       4,5,1,
+       1,0,4,
 
        //Up
        4,0,3,
        3,7,4,
 
-
        //Back
        7,6,5,
        5,4,7
-
-
-
-
 
     };
 
     for(int i = 0; i < VERTICES; ++i)
         m_color.push_back(color);
-    setGlThings(vertex,elements);
+    this->m_transform->translate(pos);
+
+    if(haveNormals)
+        setGlThings(vertex,elements);
+    else
+        setGlThings(vertex,elements,std::vector<vec3>(),false);
+
 
 }
 

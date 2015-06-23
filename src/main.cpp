@@ -1,4 +1,5 @@
 #include <iostream>
+#include <game/FinalGame.h>
 #include <game/MontanhaRussa.h>
 #include "Engine.h"
 #include "game/Game.h"
@@ -9,7 +10,7 @@ using namespace std;
 int main()
 {
     Engine eng;
-    eng.Run(new Game);
+    eng.Run(new FinalGame);
     return 0;
 }
 

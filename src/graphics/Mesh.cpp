@@ -34,6 +34,7 @@ void Mesh::setGlThings(std::vector<vec3> vertex,
     m_haveNormals = haveNormals;
     if(normals.empty())
     {
+        LOG("Tamanho Vertex = " << vertex.size());
         vec3 aux,v1,v2,v3;
         for(uint i = 0; i < elements.size(); i += 3)
         {
@@ -43,6 +44,7 @@ void Mesh::setGlThings(std::vector<vec3> vertex,
 
             aux = glm::cross((v2 - v1),(v3 - v1));
             aux = glm::normalize(aux);
+            LOG(aux.x << " | " << aux.y << " | " << aux.z);
             normals.push_back(aux);
             normals.push_back(aux);
             normals.push_back(aux);
@@ -95,11 +97,12 @@ void Mesh::setGlThings(std::vector<vec3> vertex,
                  elements.data(),GL_STATIC_DRAW);
 
 
+    //FIXME problemas nas normais
     glBindBuffer(GL_ARRAY_BUFFER,vbo[VB_NORMALS]);
     glBufferData(GL_ARRAY_BUFFER,normals.size()*3*sizeof(float),
                  normals.data(),GL_STATIC_DRAW);
-
     glVertexAttribPointer(2,3,GL_FLOAT,GL_FALSE,3*sizeof(float),0);
+
     glEnableVertexAttribArray(2);
 
 

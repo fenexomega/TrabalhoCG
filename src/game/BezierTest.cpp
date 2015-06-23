@@ -80,7 +80,7 @@ void BezierTest::init()
 
     cam = new Camera(vec3(0,0.5,3.0f),vec3(0,0.5,0),vec3(0,1,0),70.0f);
 
-    Light luz {glm::vec4(0,-1,0,0)};
+    Light luz {glm::vec3(0,-1,0)};
 
 
 }

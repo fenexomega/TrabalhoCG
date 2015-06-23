@@ -4,6 +4,7 @@
 #include "Obj_Loader.h"
 #include <stdexcept>
 #include "utils/Logger.h"
+#include "graphics/Texture.h"
 
 Program *TexMesh::m_p;
 
@@ -103,7 +104,6 @@ void TexMesh::setGlThings(std::vector<vec3> vertex,
     glEnableVertexAttribArray(2);
 
 
-
     glBindVertexArray(0);
 }
 std::vector<glm::vec3> TexMesh::normals() const
@@ -166,6 +166,63 @@ TexMesh::TexMesh(std::vector<vec3> vertex, glm::vec3 color,
         m_color.push_back(color);
 
     setGlThings(vertex,elements);
+}
+
+
+TexMesh::TexMesh(std::string filename, std::string texturefile, glm::vec4 color)
+{
+    IndexedModel model = OBJModel(filename).ToIndexedModel();
+
+    texture = new Texture(texturefile);
+
+
+    vertices = model.positions.size();
+    m_nbr_elements = model.indices.size();
+
+    glGenVertexArrays(1,&vao);
+    glBindVertexArray(vao);
+
+    glEnableVertexAttribArray(0);
+    glEnableVertexAttribArray(1);
+    glEnableVertexAttribArray(2);
+    glEnableVertexAttribArray(3);
+
+
+    glGenBuffers(VB_BUFFERS,vbo);
+    glBindBuffer(GL_ARRAY_BUFFER,vbo[VB_VERTEX]);
+    glBufferData(GL_ARRAY_BUFFER,vertices*(3*sizeof(GLfloat)),model.positions.data(),GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,3*sizeof(GLfloat),0);
+
+    glBindBuffer(GL_ARRAY_BUFFER,vbo[VB_NORMALS]);
+    glBufferData(GL_ARRAY_BUFFER,vertices*(3*sizeof(GLfloat)),model.normals.data(),GL_STATIC_DRAW);
+
+    glVertexAttribPointer(3,3,GL_FLOAT,GL_FALSE,3*sizeof(GLfloat),0);
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,vbo[VB_ELEMENTS]);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER,m_nbr_elements*(sizeof(GLuint)),model.indices.data(),GL_STATIC_DRAW);
+
+    std::vector<glm::vec4> colors;
+    for(int i = 0 ; i < vertices; ++i)
+    {
+
+        colors.push_back(color);
+
+    }
+
+    glBindBuffer(GL_ARRAY_BUFFER,vbo[VB_COLORS]);
+    glBufferData(GL_ARRAY_BUFFER,vertices*(4*sizeof(GLfloat)),colors.data(),GL_STATIC_DRAW);
+
+    glVertexAttribPointer(1,4,GL_FLOAT,GL_FALSE,4*sizeof(GLfloat),0);
+
+    glBindBuffer(GL_ARRAY_BUFFER,vbo[VB_TEXTURE_COORDS]);
+    glBufferData(GL_ARRAY_BUFFER,vertices*(2*sizeof(GLfloat)),model.texCoords.data(),GL_STATIC_DRAW);
+
+    glVertexAttribPointer(2,2,GL_FLOAT,GL_FALSE,2*sizeof(GLfloat),0);
+
+
+    glBindVertexArray(0);
+
 }
 
 TexMesh::TexMesh(std::string modelFile, glm::vec3 color)

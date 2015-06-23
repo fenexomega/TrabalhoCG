@@ -28,6 +28,7 @@
 #include <memory>
 
 class Program;
+class Texture;
 using glm::vec2;
 using glm::vec3;
 
@@ -41,6 +42,7 @@ protected:
                      bool haveNormals = true);
     static Program *m_p;
     GLuint vao;
+    Texture *texture;
     int vertices;
     int m_nbr_elements;
     std::vector<glm::vec3> m_color;
@@ -84,5 +86,6 @@ public:
     void setElements(const std::vector<GLuint> &elements);
     std::vector<glm::vec3> normals() const;
     void setNormals(const std::vector<glm::vec3> &normals);
+    TexMesh(std::string filename, std::string texturefile, glm::vec4 color);
 };
 #endif

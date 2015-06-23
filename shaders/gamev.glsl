@@ -10,13 +10,14 @@ layout(location = 0) uniform mat4 model;
 layout(location = 1) uniform mat4 view;
 layout(location = 2) uniform mat4 proj;
 out vec4 outColor;
-out vec4 outNormal;
+out vec3 outNormal;
 out vec3 FragPos;
+
 
 void main(void)
 {
     gl_Position =   proj * view * model * vec4(Pos,1.0f);
-    outNormal   =   normalize(transpose(inverse(model))*vec4(normal,0.0));
+    outNormal   =   normalize(mat3(transpose(inverse(model)))*normal);
     FragPos     =   vec3(model * vec4(Pos,1.0));
     outColor    =   vec4(inColor,1.0);
 }

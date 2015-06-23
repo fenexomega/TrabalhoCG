@@ -50,7 +50,7 @@ Quarto::Quarto()
 
     m_meshes.push_back(new Shadow
              (LASTOF(m_meshes),
-              vec3(0,0,0),Light(vec4(0.0,-1.0,0.0,0.0))));
+              vec3(0,0,0),Light(vec3(0.0,-1.0,0.0))));
 
     m_meshes.push_back(new Mesh("Gaming Desk.obj",vec3(0.5f,0.0f,0.3f)));
     LASTOF(m_meshes)->transform()->translate(1.2,-0.025f,2);
@@ -60,7 +60,7 @@ Quarto::Quarto()
 
     m_meshes.push_back(new Shadow
              (LASTOF(m_meshes),
-              vec3(0,0,0),Light(vec4(0.0,-1.0,0.0,0.0))));
+              vec3(0,0,0),Light(vec3(0.0,-1.0,0.0))));
 
     m_meshes.push_back(new Mesh("Bed.obj",vec3(1.0f,0.f,0.3f)));
     LASTOF(m_meshes)->transform()->translate(-0.8f,0.3,3.3f);
@@ -69,7 +69,7 @@ Quarto::Quarto()
 
     m_meshes.push_back(new Shadow
              (LASTOF(m_meshes),
-              vec3(0,0,0),Light(vec4(0.0,-1.0,0.0,0.0))));
+              vec3(0,0,0),Light(vec3(0.0,-1.0,0.0))));
 
     m_meshes.push_back(new Mesh("soccer ball.obj",vec3(0.8f,0.8f,1.0f)));
     LASTOF(m_meshes)->transform()->translate(-0,0.05f,1.2f);
@@ -79,7 +79,7 @@ Quarto::Quarto()
 
     m_meshes.push_back(new Shadow
              (LASTOF(m_meshes),
-              vec3(0,0,0),Light(vec4(0.0,-1.0,0.0,0.0))));
+              vec3(0,0,0),Light(vec3(0.0,-1.0,0.0))));
 }
 
 Quarto::~Quarto()
