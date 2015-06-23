@@ -44,7 +44,6 @@ void Mesh::setGlThings(std::vector<vec3> vertex,
 
             aux = glm::cross((v2 - v1),(v3 - v1));
             aux = glm::normalize(aux);
-            LOG(aux.x << " | " << aux.y << " | " << aux.z);
             normals.push_back(aux);
             normals.push_back(aux);
             normals.push_back(aux);
@@ -52,6 +51,11 @@ void Mesh::setGlThings(std::vector<vec3> vertex,
     }
     m_normals = normals;
     m_vertex = vertex;
+
+    for(auto i : m_color)
+        LOG(i.x << " | " << i.y << " | " << i.z);
+
+
 
     if(m_p == NULL)
     {
@@ -77,7 +81,7 @@ void Mesh::setGlThings(std::vector<vec3> vertex,
 
     glGenBuffers(VB_BUFFERS,vbo);
     glBindBuffer(GL_ARRAY_BUFFER,vbo[VB_VERTEX]);
-    glBufferData(GL_ARRAY_BUFFER,vertices*sizeof(float),
+    glBufferData(GL_ARRAY_BUFFER,vertices*3*sizeof(float),
                  vertex.data(),GL_STATIC_DRAW);
     
     glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,3*sizeof(float),0);
@@ -85,10 +89,11 @@ void Mesh::setGlThings(std::vector<vec3> vertex,
 
 
     glBindBuffer(GL_ARRAY_BUFFER,vbo[VB_COLORS]);
-    glBufferData(GL_ARRAY_BUFFER,vertices*sizeof(float),
-                 m_color.data(),GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER,vertices*3*sizeof(float),
+                 m_color.data(),GL_STATIC_DRAW);
+    glVertexAttribPointer(1,3,GL_FLOAT,GL_FALSE,
+                          3*sizeof(float),0);
 
-    glVertexAttribPointer(1,3,GL_FLOAT,GL_FALSE,3*sizeof(float),0);
     glEnableVertexAttribArray(1);
 
 

@@ -21,8 +21,8 @@ layout(location = 6) uniform vec3 viewPos;
 out vec4 finalColor;
 vec3 lightColor = vec3(1.0,1.0,1.0);
 
-float ambientStrength = 0.3;
-float specularStrength = 1.0;
+float ambientStrength = 0.1;
+float specularStrength = 0.5;
 
 void main(void)
 {

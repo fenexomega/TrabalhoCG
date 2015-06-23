@@ -3,7 +3,10 @@
 #include <vector>
 #define VERTICES 8
 
-Box::Box(glm::vec3 size, glm::vec3 color, glm::vec3 pos, bool haveNormals)
+#include "utils/Logger.h"
+
+Box::Box(glm::vec3 size, glm::vec3 color,
+         glm::vec3 pos, bool haveNormals)
 {
 
 
@@ -117,6 +120,7 @@ Box::Box(glm::vec3 size, glm::vec3 color, glm::vec3 pos, bool haveNormals)
     else
         setGlThings(vertex,elements,std::vector<vec3>(),false);
 
+    changeColor(color);
 
 }
 
