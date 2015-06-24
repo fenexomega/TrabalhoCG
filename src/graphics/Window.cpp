@@ -6,7 +6,7 @@ SDL_Window *Window::SDLwindow;
 SDL_GLContext Window::GLcontext;
 int Window::width;
 int Window::height;
-
+std::string Window::_title;
 
 
 
@@ -28,6 +28,16 @@ int Window::getHeight()
 void Window::setHeight(int value)
 {
     height = value;
+}
+
+std::string Window::getTitle()
+{
+    return _title;
+}
+
+void Window::setTitle(const std::string &value)
+{
+    _title = value;
 }
 void Window::CreateGlContext()
 {
@@ -76,7 +86,7 @@ void Window::CreateWindow(int _width, int _height, std::string title, bool isFul
 
     if(isFullscreen)
         windowsFlags |=  SDL_WINDOW_FULLSCREEN;
-
+    _title = title;
     this->width = _width;
     this->height = _height;
     SDLwindow = SDL_CreateWindow(title.c_str(),SDL_WINDOWPOS_CENTERED

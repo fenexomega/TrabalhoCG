@@ -56,7 +56,7 @@ void Engine::Run(iGame *game)
 
         if(totalTime >= 1.0)
         {
-            win.SetTitle("0xFramework " + TOSTR(framerate) + " FPS");
+            win.SetTitle(win.getTitle() + " " +  TOSTR(framerate) + " FPS");
             framerate = totalTime = 0;
         }
 

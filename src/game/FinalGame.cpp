@@ -15,6 +15,7 @@
 #include <graphics/Shadow.h>
 #include "graphics/Bezier.h"
 #include <graphics/Light.h>
+#include <graphics/Window.h>
 #include "game/GameInput.h"
 #define TAM_LADRILHO 0.32f
 #define ALTURA 2.0f
@@ -37,6 +38,9 @@ FinalGame::~FinalGame()
 
 void FinalGame::init()
 {
+
+    Window win;
+    win.CreateWindow(1024,728,"Trabalho Final");
 	glEnable(GL_DEPTH_TEST);
     glEnable(GL_LINE_SMOOTH);
 
@@ -59,6 +63,8 @@ void FinalGame::init()
     meshes.push_back(new Box(vec3(10.0f,altura,0.01f),vec3(0.0f,0.3f,1),vec3(0,altura/2,5)));
     meshes.push_back(new Box(vec3(10.0f,altura,0.01f),vec3(0.0f,0.3f,1),vec3(0,altura/2,-5)));
 
+    meshes.push_back(new Box(vec3(0.01f,altura,10.0f),vec3(0.0f,0.3f,1),vec3(5,altura/2,0)));
+    meshes.push_back(new Box(vec3(0.01f,altura,10.0f),vec3(0.0f,0.3f,1),vec3(-5,altura/2,0)));
 
     meshes.push_back(new Box(vec3(10.0f,0.01f,10.0f),vec3(0.0f,0.3f,1),vec3(0,altura,0)));
     meshes.push_back(new Box(vec3(10.0f,0.01f,10.0f),vec3(1.0f,1.f,1)));

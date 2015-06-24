@@ -16,6 +16,7 @@ private:
     static SDL_Window *SDLwindow;
     static SDL_GLContext GLcontext;
     static int width, height;
+    static std::string _title;
     void CreateGlContext();
 public:
     Window();
@@ -29,6 +30,8 @@ public:
     static void setWidth(int value);
     static int getHeight();
     static void setHeight(int value);
+    static std::string getTitle();
+    static void setTitle(const std::string &value);
 };
 
 #endif // WINDOW_H

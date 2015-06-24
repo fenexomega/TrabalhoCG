@@ -18,7 +18,6 @@ Light::Light(glm::vec3 pos, glm::vec3 size) : Mesh()
 {
     m_pos = pos;
     glUniform3f(5,pos.x,pos.y,pos.z);
-//    glUniform4fv(3,1,&dir[0]);
     m_box = new Box(vec3(0.2,0.2,0.2)*size,vec3(1.0f),pos,false);
 
 }
