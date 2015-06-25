@@ -206,14 +206,22 @@ void FinalGame::drawMultiCam()
 {
     static Window win;
 
-    glViewport(0,win.getHeight()/2,win.getWidth(),win.getHeight()/2);
+    glViewport(0,win.getHeight()/2,win.getWidth()/2,win.getHeight()/2);
     multicams[0]->Update();
     drawObjects();
 
 
-    glViewport(0,0,win.getWidth(),win.getHeight()/2);
+    glViewport(win.getWidth()/2,win.getHeight()/2,win.getWidth()/2,win.getHeight()/2);
     multicams[1]->Update();
+    drawObjects();
 
+    glViewport(0,0,win.getWidth()/2,win.getHeight()/2);
+    multicams[2]->Update();
+    drawObjects();
+
+    glViewport(win.getWidth()/2,0,win.getWidth()/2,win.getHeight()/2);
+    multicams[3]->Update();
     drawObjects();
 
 }
+
