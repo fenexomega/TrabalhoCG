@@ -20,6 +20,7 @@ layout(location = 4) uniform int haveNormals;
 layout(location = 7) uniform int haveTexture;
 layout(location = 5) uniform vec3 LightPos;
 layout(location = 6) uniform vec3 viewPos;
+layout(location = 8) uniform int NolightEffect;
 
 out vec4 finalColor;
 vec3 lightColor = vec3(1.0,1.0,1.0);
@@ -31,7 +32,7 @@ uniform sampler2D sampler;
 
 void main(void)
 {
-    if(haveNormals == 1)
+    if(NolightEffect == 0 && haveNormals == 1)
     {
         float dist = distance(LightPos,FragPos)/1.5;
       // UTILIZANDO PHONG SHADING
