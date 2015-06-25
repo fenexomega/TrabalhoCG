@@ -29,8 +29,15 @@ private:
     std::vector<Mesh*> transparentes;
     std::vector<TexMesh*> texturizados;
     std::vector<Mesh*> etc;
-
+    bool multiView = false;
+    Camera* selectedCam;
     Camera* cam;
+
+    Camera* multicams[4];
+    unsigned int camNum;
+    unsigned int maxCams = 2;
+    void drawObjects();
+    void drawMultiCam();
 };
 
 #endif // FinalGAME_H

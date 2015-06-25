@@ -82,54 +82,72 @@ void FinalGame::init()
 
 
 
-    etc.push_back(new Light(glm::vec3(0,altura - 0.2f,0.0f),vec3(2.0f,0.3f,1.0f)));
+    etc.push_back(new Light(glm::vec3(0,altura ,0.0f),vec3(2.0f,0.5f,1.0f)));
 
     transparentes.push_back(new Box(vec3(1.0),vec4(1.0,1.0,0.0,0.5f),vec3(-1,0.5f,0)));
+    transparentes.push_back(new Box(vec3(1.0),vec4(1.0,0.0,0.0,0.5f),vec3(-1,0.5f,1)));
+
 
     // A CAMERA TEM DE IR POR ÚLTIMO, POIS ELA USA O SHADER JÁ SETADO
     cam = new Camera(vec3(0,0.5,3.0f),vec3(0,0.5,0),vec3(0,1,0),70.0f);
+    selectedCam = cam;
 
+    multicams[0] = new Camera(vec3(0,0.5,3.0f),vec3(0,0.5,0),vec3(0,1,0),70.0f);
+    multicams[1] = new Camera(vec3(0,0.5,3.0f),vec3(0,0.5,0),vec3(0,1,0),70.0f);
+    multicams[2] = new Camera(vec3(0,0.5,3.0f),vec3(0,0.5,0),vec3(0,1,0),70.0f);
+    multicams[3] = new Camera(vec3(0,0.5,3.0f),vec3(0,0.5,0),vec3(0,1,0),70.0f);
+
+    camNum = 0;
 }
+
 
 void FinalGame::update(double delta)
 {
-    cam->Update();
 
-//    LOG(mouseWheel);
+    selectedCam->Update();
 
     if(sysInput::isKeyPressed(SDL_SCANCODE_W))
-        cam->Move(0,0,-0.02f);
+        selectedCam->Move(0,0,-0.02f);
     if(sysInput::isKeyPressed(SDL_SCANCODE_S))
-        cam->Move(0,0,0.02f);
+        selectedCam->Move(0,0,0.02f);
     if(sysInput::isKeyPressed(SDL_SCANCODE_A))
-        cam->Move(-0.02f,0,0);
+        selectedCam->Move(-0.02f,0,0);
     if(sysInput::isKeyPressed(SDL_SCANCODE_D))
-        cam->Move(0.02f,0,0);
+        selectedCam->Move(0.02f,0,0);
     if(sysInput::isKeyPressed(SDL_SCANCODE_LCTRL))
-        cam->Move(0,-0.02f,0);
+        selectedCam->Move(0,-0.02f,0);
     if(sysInput::isKeyPressed(SDL_SCANCODE_SPACE))
-        cam->Move(0,0.02f,0);
+        selectedCam->Move(0,0.02f,0);
 
     if(sysInput::isKeyPressed(SDL_SCANCODE_LEFT))
-        cam->RotateY(-0.02f);
+        selectedCam->RotateY(-0.02f);
     if(sysInput::isKeyPressed(SDL_SCANCODE_RIGHT))
-        cam->RotateY(0.02f);
+        selectedCam->RotateY(0.02f);
     if(sysInput::isKeyPressed(SDL_SCANCODE_UP))
-        cam->RotateX(-0.01f);
+        selectedCam->RotateX(-0.01f);
     if(sysInput::isKeyPressed(SDL_SCANCODE_DOWN))
-        cam->RotateX(0.01f);
-
-
+        selectedCam->RotateX(0.01f);
 
     if(sysInput::isKeyDown(SDL_SCANCODE_F6))
-        cam->changePerspective();
+        selectedCam->changePerspective();
+
+    if(sysInput::isKeyDown(SDL_SCANCODE_F5))
+    {
+        camNum = 0;
+        selectedCam = multicams[camNum];
+        multiView = !multiView;
+    }
+    if(sysInput::isKeyDown(SDL_SCANCODE_TAB))
+        if(multiView)
+        {
+            camNum = (++camNum)%maxCams;
+            selectedCam = multicams[camNum];
+        }
 
     if((sysInput::isKeyPressed(SDL_SCANCODE_MINUS)))
-        cam->setFOV(cam->FOV() + 0.5f);
+        selectedCam->setFOV(selectedCam->FOV() + 0.5f);
     if(sysInput::isKeyPressed(SDL_SCANCODE_EQUALS))
-        cam->setFOV(cam->FOV() - 0.5f);
-
-
+        selectedCam->setFOV(selectedCam->FOV() - 0.5f);
 
 
     for(auto m : meshes)
@@ -144,15 +162,38 @@ void FinalGame::update(double delta)
 
 void FinalGame::pause()
 {
+
 }
 
 void FinalGame::draw(double delta)
 {
+    static Window win;
+
     glClearColor(0.0f,0.0f,0.0f,1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    if(!multiView)
+    {
+        glViewport(0,0,win.getWidth(),win.getHeight());
+        drawObjects();
+    }
+    else
+        drawMultiCam();
+
+    win.SwapBuffers();
+}
+
+void FinalGame::dispose()
+{
+    delete cam;
+    for(auto m : meshes)
+        delete m;
+}
+
+void FinalGame::drawObjects()
+{
     for(auto m : etc)
         m->VDraw();
-
     for(auto m : meshes)
         m->VDraw();
     for(auto m : texturizados)
@@ -161,8 +202,18 @@ void FinalGame::draw(double delta)
         m->VDraw();
 }
 
-void FinalGame::dispose()
+void FinalGame::drawMultiCam()
 {
-    for(auto m : meshes)
-       delete m;
+    static Window win;
+
+    glViewport(0,win.getHeight()/2,win.getWidth(),win.getHeight()/2);
+    multicams[0]->Update();
+    drawObjects();
+
+
+    glViewport(0,0,win.getWidth(),win.getHeight()/2);
+    multicams[1]->Update();
+
+    drawObjects();
+
 }

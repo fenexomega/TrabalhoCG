@@ -66,9 +66,10 @@ void Engine::Run(iGame *game)
         Buttons();
         SDL_Delay(1000.0f/60);
 
+
         game->draw(timeFrame);
 
-        win.SwapBuffers();
+//        win.SwapBuffers();
     }
 	game->dispose();
 

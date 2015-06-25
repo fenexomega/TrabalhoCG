@@ -33,6 +33,7 @@ void main(void)
 {
     if(haveNormals == 1)
     {
+        float dist = distance(LightPos,FragPos)/1.5;
       // UTILIZANDO PHONG SHADING
 
         // AMBIENT
@@ -49,7 +50,8 @@ void main(void)
         float spec = pow(max(dot(viewDir,reflectDir),0.0),128);
         vec3 specular = specularStrength * lightColor * spec;
 
-        vec4 result = vec4(difuse + ambient + specular,1.0);
+        vec4 result = vec4(difuse + ambient + specular,1.0)/dist;
+        result.w = 1.0;
         if(haveTexture == 1)
             finalColor = result*texture(sampler,TexCoord);
         else
