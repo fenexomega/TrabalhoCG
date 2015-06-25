@@ -124,7 +124,7 @@ void BezierTest::update(double delta)
     if(sysInput::isKeyDown(SDL_SCANCODE_F5))
     {
         static bool b = true;
-        meshes.at(0)->changeColor(glm::vec3(1.0,1.0,1.0),b = !b);
+        meshes.at(0)->changeColor(glm::vec4(1.0,1.0,1.0,1),b = !b);
 
     }
 

@@ -43,7 +43,7 @@ protected:
     GLuint vao;
     int vertices;
     int m_nbr_elements;
-    std::vector<glm::vec3> m_color;
+    std::vector<glm::vec4> m_color;
     std::vector<glm::vec3> m_vertex;
     std::vector<glm::vec3> m_normals;
     std::vector<GLuint> m_elements;
@@ -65,14 +65,14 @@ public:
 
     Mesh(std::vector<vec3> vertex, std::vector<GLfloat> colors,
          std::vector<GLuint> elements);
-    Mesh(std::vector<vec3> vertex, glm::vec3 colors,
+    Mesh(std::vector<vec3> vertex, glm::vec4 colors,
          std::vector<GLuint> elements);
-    Mesh(std::string modelFile, glm::vec3 color);
+    Mesh(std::string modelFile, glm::vec4 color);
 
     virtual void VUpdate();
     virtual void VDraw();
 
-    void changeColor(glm::vec3 color, bool original= false );
+    void changeColor(glm::vec4 color, bool original= false );
     virtual ~Mesh();
 
     Transform *transform() const;

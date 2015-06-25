@@ -7,7 +7,7 @@ Arrow::Arrow()
 
 }
 
-Arrow::Arrow(glm::vec3 pos, glm::vec3 color,
+Arrow::Arrow(glm::vec3 pos, glm::vec4 color,
              glm::vec4 rot)
     : m_pos(pos),m_choosenColor(color)
 {

@@ -5,11 +5,11 @@
 
 CoordinateArrows::CoordinateArrows(glm::vec3 pos)
 {
-    m_meshes.push_back(new Arrow(pos,vec3(1.0f,0.0f,0.0f)));
-    m_meshes.push_back(new Arrow(pos,vec3(0.0f,1.0f,0.0f),
+    m_meshes.push_back(new Arrow(pos,vec4(1.0f,0.0f,0.0f,1.0f)));
+    m_meshes.push_back(new Arrow(pos,vec4(0.0f,1.0f,0.0f,1.0f),
                                  vec4(-90.0f,0,0,1.0f)));
     m_meshes.push_back(new Arrow(pos,
-                                 vec3(0.0f,0.0f,1.0f),
+                                 vec4(0.0f,0.0f,1.0f,1.0f),
                                   vec4(90.0f,1.0f,0,0.0f)));
 
 

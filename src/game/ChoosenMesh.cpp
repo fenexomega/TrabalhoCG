@@ -102,9 +102,9 @@ void ChoosenMesh::Update(Mesh *mesh, int i)
     static MODE mode = NONE;
     if(m_oldMesh != mesh)
     {
-        mesh->changeColor(vec3(1.0f,1.0f,1.0f));
+        mesh->changeColor(glm::vec4(1.0f,1.0f,1.0f,1.0f));
         if(m_oldMesh )
-            m_oldMesh->changeColor(vec3(1.0f,1.0f,1.0f),true);
+            m_oldMesh->changeColor(glm::vec4(1.0f,1.0f,1.0f,1.0f),true);
         m_oldMesh = mesh;
         LOG("Escolhido -> " << i);
     }

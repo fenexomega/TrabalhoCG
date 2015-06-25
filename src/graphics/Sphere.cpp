@@ -23,7 +23,7 @@ Sphere::Sphere(float r, GLint slices, GLint stacks)
 
         vertex.push_back(point);
         elements.push_back(e++);
-        m_color.push_back(vec3(0,1,0));
+        m_color.push_back(glm::vec4(0,1,0,1));
 
         u += 1.0f/slices;
         v += 1.0f/stacks;

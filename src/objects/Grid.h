@@ -12,7 +12,7 @@ private:
     GLuint lineNbr;
 public:
     Grid(glm::vec3 pos, glm::vec2 size, GLuint lineNbr,
-         vec3 color = vec3(1.0f,1.0f,1.0f));
+         glm::vec4 color = glm::vec4(1.0f,1.0f,1.0f,1.0f));
     ~Grid();
 
     // Mesh interface

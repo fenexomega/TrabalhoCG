@@ -10,8 +10,8 @@ class Square : public Mesh
 private:
 
 public:
-    Square(glm::vec2 size, glm::vec3 color = glm::vec3()
-            ,glm::vec3 pos = glm::vec3());
+    Square(glm::vec2 size, glm::vec4 color = glm::vec4()
+            , glm::vec3 pos = glm::vec3());
     ~Square();
 };
 

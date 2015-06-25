@@ -26,7 +26,7 @@ Shadow::Shadow( Mesh *mesh, glm::vec3 plane,
     }
     for(uint i = 0; i < m_vertex.size(); ++i)
     {
-        m_color.push_back(vec3(0.0f,0.0f,0.0f));
+        m_color.push_back(vec4(0.0f,0.0f,0.0f,1.0f));
     }
     setGlThings(m_vertex,mesh->elements(),mesh->normals());
 

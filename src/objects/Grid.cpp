@@ -4,7 +4,7 @@
 
 #include "utils/Logger.h"
 
-Grid::Grid(glm::vec3 pos, glm::vec2 size, GLuint lineNbr, glm::vec3 color)
+Grid::Grid(glm::vec3 pos, glm::vec2 size, GLuint lineNbr, glm::vec4 color)
     : m_pos(pos),m_size(size),lineNbr(lineNbr)
 {
     std::vector<vec3> vertex;

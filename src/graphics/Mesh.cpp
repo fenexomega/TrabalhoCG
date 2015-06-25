@@ -103,10 +103,10 @@ void Mesh::setGlThings(std::vector<vec3> vertex,
 
 
     glBindBuffer(GL_ARRAY_BUFFER,vbo[VB_COLORS]);
-    glBufferData(GL_ARRAY_BUFFER,vertices*sizeof(float),
-                 m_color.data(),GL_STATIC_DRAW);
-    glVertexAttribPointer(1,3,GL_FLOAT,GL_FALSE,
-                          3*sizeof(float),0);
+    glBufferData(GL_ARRAY_BUFFER,m_color.size()*4*sizeof(float),
+                 m_color.data(),GL_DYNAMIC_DRAW);
+    glVertexAttribPointer(1,4,GL_FLOAT,GL_FALSE,
+                          4*sizeof(float),(void *)0);
 
     glEnableVertexAttribArray(1);
 
@@ -181,11 +181,11 @@ Mesh::Mesh(std::vector<vec3> vertex, std::vector<GLfloat> colors,
     m_transform = new Transform;
 
     for(uint i = 0; i < colors.size(); i += 3)
-        m_color.push_back(glm::vec3(colors[i],colors[i+1],colors[i+2]));
+        m_color.push_back(glm::vec4(colors[i],colors[i+1],colors[i+2],1.0f));
     setGlThings(vertex,elements);
 }
 
-Mesh::Mesh(std::vector<vec3> vertex, glm::vec3 color,
+Mesh::Mesh(std::vector<vec3> vertex, glm::vec4 color,
            std::vector<GLuint> elements)
 {
     m_transform = new Transform;
@@ -196,7 +196,7 @@ Mesh::Mesh(std::vector<vec3> vertex, glm::vec3 color,
     setGlThings(vertex,elements);
 }
 
-Mesh::Mesh(std::string modelFile, glm::vec3 color)
+Mesh::Mesh(std::string modelFile, glm::vec4 color)
 {
     m_transform = new Transform;
 
@@ -224,9 +224,9 @@ Mesh::Mesh(std::string modelFile, glm::vec3 color)
 
 }
 
-void Mesh::changeColor(glm::vec3 color, bool original )
+void Mesh::changeColor(glm::vec4 color, bool original )
 {
-    std::vector<glm::vec3> t_colors;
+    std::vector<glm::vec4> t_colors;
 
     if(original)
     {
@@ -240,7 +240,7 @@ void Mesh::changeColor(glm::vec3 color, bool original )
     }
     glBindVertexArray(vao);
     glBindBuffer(GL_ARRAY_BUFFER,vbo[VB_COLORS]);
-    glBufferData(GL_ARRAY_BUFFER,vertices*sizeof(float),t_colors.data(),GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER,m_color.size()*4*sizeof(float),t_colors.data(),GL_DYNAMIC_DRAW);
     glBindVertexArray(0);
 }
 

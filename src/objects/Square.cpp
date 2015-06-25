@@ -2,7 +2,7 @@
 
 #include <vector>
 
-Square::Square(glm::vec2 size, glm::vec3 color, glm::vec3 pos)
+Square::Square(glm::vec2 size, glm::vec4 color, glm::vec3 pos)
 {
     std::vector<vec3> vertex = {
 

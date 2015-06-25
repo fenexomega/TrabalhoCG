@@ -17,12 +17,12 @@ Cylinder::Cylinder(float radius, float height, int slices, int sections)
     {
         vertex.push_back(vec3(radius*cos(i),radius*sin(i),0));
         elements.push_back(e++);
-        m_color.push_back(vec3(0,1,1.0f));
+        m_color.push_back(glm::vec4(0,1,1.0f,1.0f));
 
     }
     vertex.push_back(vec3(radius*cos(2*pi),radius*sin(2*pi),0));
     elements.push_back(e);
-    m_color.push_back(vec3(0,1,1.0f));
+    m_color.push_back(glm::vec4(0,1,1.0f,1.0f));
 
     setGlThings(vertex,elements,vector<vec3>(),false);
 }

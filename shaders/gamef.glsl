@@ -26,8 +26,6 @@ float specularStrength = 0.5;
 
 void main(void)
 {
-
-
     if(haveNormals == 1)
     {
       // UTILIZANDO PHONG SHADING

@@ -50,7 +50,7 @@ Spline::Spline(glm::vec3 *ctrlPoints, int numCtrlPoints, int numPoints )
 
             vertex.push_back(vec3(point.x,point.y,point.z));
             elements.push_back(e++);
-            m_color.push_back(vec3(1,0,0));
+            m_color.push_back(glm::vec4(1,0,0,1.0f));
 
         }
 
