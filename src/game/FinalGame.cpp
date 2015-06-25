@@ -43,6 +43,8 @@ void FinalGame::init()
     win.CreateWindow(1024,728,"Trabalho Final");
 	glEnable(GL_DEPTH_TEST);
     glEnable(GL_LINE_SMOOTH);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     float altura = 2.0f;
 

@@ -14,6 +14,7 @@ public:
     Texture(const std::string filename);
     ~Texture();
     void Bind();
+    void Unbind();
     float getW() const;
     void setW(float value);
     float getH() const;
