@@ -5,7 +5,7 @@ aux_source_directory(. SRC_LIST)
 file(GLOB_RECURSE ENGINE_HEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "src/*.h" "src/*.hpp")
 file(GLOB_RECURSE ENGINE_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "src/*.cpp" "thirdparties/*.c" "thirdparty/*.cpp")
 file(GLOB_RECURSE GAME_SHADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "shaders/*.glsl")
-file(GLOB_RECURSE MODELS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "models/*.obj")
+file(GLOB_RECURSE MODELS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "models/*.obj" "models/*.JPG" "models/*.jpg")
 
 
 

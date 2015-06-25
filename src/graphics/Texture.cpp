@@ -1,10 +1,10 @@
 #include "Texture.h"
+#include <GL/glew.h>
 
 #include <SDL2/SDL_image.h>
 #include "utils/Logger.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>
-
 
 
 
@@ -63,6 +63,7 @@ Texture::Texture(const std::string filename)
     glGenTextures(1,&textureId);
     glBindTexture(GL_TEXTURE_2D,textureId);
 
+
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
@@ -84,10 +85,12 @@ Texture::~Texture()
 void Texture::Bind()
 {
     glBindTexture(GL_TEXTURE_2D,textureId);
+    glUniform1i(7,1);
 }
 
 void Texture::Unbind()
 {
-    glBindTexture(GL_TEXTURE_2D,0);
+    glUniform1i(7,0);
+
 }
 

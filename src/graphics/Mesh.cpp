@@ -66,8 +66,7 @@ void Mesh::setGlThings(std::vector<vec3> vertex,
     m_normals = normals;
     m_vertex = vertex;
 
-    for(auto i : m_color)
-        LOG(i.x << " | " << i.y << " | " << i.z);
+
 
 
 
@@ -124,14 +123,6 @@ void Mesh::setGlThings(std::vector<vec3> vertex,
 
     glEnableVertexAttribArray(2);
 
-
-    // THIS NEVER WORKED
-    //    glBindBuffer(GL_ARRAY_BUFFER,vbo[VB_BOOL_NORMALS]);
-    //    glBufferData(GL_ARRAY_BUFFER,sizeof(GLint),&aux,GL_STATIC_DRAW);
-    ////    glVertexAttribPointer(3,1,GL_INT,GL_FALSE,sizeof(GLint),0);
-    //        glVertexAttribIPointer(3,1,GL_INT,0,&aux);
-
-    //    glEnableVertexAttribArray(3);
     glBindVertexArray(0);
 }
 std::vector<glm::vec3> Mesh::normals() const

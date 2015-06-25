@@ -7,6 +7,7 @@
 
 class Mesh;
 class Camera;
+class TexMesh;
 class FinalGame : public iGame
 {
 public:
@@ -26,6 +27,7 @@ private:
     std::vector<Mesh*> meshes;
     std::vector<Mesh*> sombras;
     std::vector<Mesh*> transparentes;
+    std::vector<TexMesh*> texturizados;
     std::vector<Mesh*> etc;
 
     Camera* cam;

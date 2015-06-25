@@ -25,6 +25,7 @@
 #include <vector>
 #include "graphics/Transform.h"
 #include "graphics/Program.h"
+#include "Mesh.h"
 #include <memory>
 
 class Program;
@@ -32,20 +33,22 @@ class Texture;
 using glm::vec2;
 using glm::vec3;
 
-class TexMesh
+class TexMesh : public Mesh
 {
 protected:
     TexMesh();
     void setGlThings(std::vector<vec3> vertex,
                      std::vector<GLuint> elements,
                      std::vector<glm::vec3> normals = std::vector<vec3>(),
-                     bool haveNormals = true);
-    static Program *m_p;
+                     bool haveNormals = true,
+                     std::vector<glm::vec2> texCoords = std::vector<vec2>(),
+                     std::string texFile = "");
+//    static Program *m_p;
     GLuint vao;
     Texture *texture;
     int vertices;
     int m_nbr_elements;
-    std::vector<glm::vec3> m_color;
+    std::vector<glm::vec4> m_color;
     std::vector<glm::vec3> m_vertex;
     std::vector<glm::vec3> m_normals;
     std::vector<GLuint> m_elements;
@@ -68,14 +71,14 @@ public:
 
     TexMesh(std::vector<vec3> vertex, std::vector<GLfloat> colors,
          std::vector<GLuint> elements);
-    TexMesh(std::vector<vec3> vertex, glm::vec3 colors,
+    TexMesh(std::vector<vec3> vertex, glm::vec4 colors,
          std::vector<GLuint> elements);
-    TexMesh(std::string modelFile, glm::vec3 color);
+    TexMesh(std::string modelFile, glm::vec4 color);
 
     virtual void VUpdate();
     virtual void VDraw();
 
-    void changeColor(glm::vec3 color, bool original= false );
+    void changeColor(glm::vec4 color, bool original= false );
     virtual ~TexMesh();
 
     Transform *transform() const;
