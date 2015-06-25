@@ -14,6 +14,7 @@
 #include "objects/Quarto.h"
 #include <graphics/Shadow.h>
 #include "graphics/Bezier.h"
+#include <graphics/FrameBuffer.h>
 #include <graphics/Light.h>
 #include <graphics/Window.h>
 #include "game/GameInput.h"
@@ -65,27 +66,27 @@ void FinalGame::init()
 
 
 //    PAREDES
-    meshes.push_back(new Box(vec3(10.0f,altura,0.01f),vec4(0.0f,0.3f,1,1),vec3(0,altura/2,5)));
-    meshes.push_back(new Box(vec3(10.0f,altura,0.01f),vec4(0.0f,0.3f,1,1),vec3(0,altura/2,-5)));
+    etc.push_back(new Box(vec3(10.0f,altura,0.01f),vec4(0.0f,0.3f,1,1),vec3(0,altura/2,5)));
+    etc.push_back(new Box(vec3(10.0f,altura,0.01f),vec4(0.0f,0.3f,1,1),vec3(0,altura/2,-5)));
 
-    meshes.push_back(new Box(vec3(0.01f,altura,10.0f),vec4(0.0f,0.3f,1,1),vec3(5,altura/2,0)));
-    meshes.push_back(new Box(vec3(0.01f,altura,10.0f),vec4(0.0f,0.3f,1,1),vec3(-5,altura/2,0)));
+    etc.push_back(new Box(vec3(0.01f,altura,10.0f),vec4(0.0f,0.3f,1,1),vec3(5,altura/2,0)));
+    etc.push_back(new Box(vec3(0.01f,altura,10.0f),vec4(0.0f,0.3f,1,1),vec3(-5,altura/2,0)));
 
-    meshes.push_back(new Box(vec3(10.0f,0.01f,10.0f),vec4(0.0f,0.3f,1,1),vec3(0,altura,0)));
-    meshes.push_back(new Box(vec3(10.0f,0.01f,10.0f),vec4(1.0f,1.f,1.0f,1.0f)));
+    etc.push_back(new Box(vec3(10.0f,0.01f,10.0f),vec4(0.0f,0.3f,1,1),vec3(0,altura,0)));
+    etc.push_back(new Box(vec3(10.0f,0.01f,10.0f),vec4(1.0f,1.f,1.0f,1.0f)));
 
     //COLOCAR OBJETOS
 
     meshes.push_back(new Box(vec3(1.0f,1.0f,1.0f),vec4(1.0f,0,0,1),vec3(-1,0.5f,-2.0f)));
-    meshes.push_back(new Box(vec3(1.0f,1.0f,1.0f),vec4(0.0f,0.3f,0,1),vec3(-2,0.5,1.0)));
+    meshes.push_back(new Box(vec3(1.0f,1.0f,1.0f),vec4(0.4f,0.5f,0.0f,1.0f),vec3(-2,0.5,1.0)));
     texturizados.push_back(new TexBox(vec3(1.0f,1.0f,1.0f),vec4(0.0f,0.3f,0,1),vec3(2,0.5,1.0)));
 
 
 
     etc.push_back(new Light(glm::vec3(0,altura ,0.0f),vec3(2.0f,0.5f,1.0f)));
 
-    transparentes.push_back(new Box(vec3(1.0),vec4(1.0,1.0,0.0,0.5f),vec3(-1,0.5f,0)));
-    transparentes.push_back(new Box(vec3(1.0),vec4(1.0,0.0,0.0,0.5f),vec3(-1,0.5f,1)));
+    meshes.push_back(new Box(vec3(1.0),vec4(1.0,1.0,0.0,0.5f),vec3(-1,0.5f,0)));
+    meshes.push_back(new Box(vec3(1.0),vec4(0.5,0.5,1.0,0.5f),vec3(-1,0.5f,1)));
 
 
     // A CAMERA TEM DE IR POR ÚLTIMO, POIS ELA USA O SHADER JÁ SETADO
@@ -98,6 +99,9 @@ void FinalGame::init()
     multicams[3] = new Camera(vec3(0,0.5,3.0f),vec3(0,0.5,0),vec3(0,1,0),70.0f);
 
     camNum = 0;
+
+    fb = new FrameBuffer(win.getWidth(),win.getHeight());
+
 }
 
 
@@ -176,6 +180,16 @@ void FinalGame::draw(double delta)
     {
         glViewport(0,0,win.getWidth(),win.getHeight());
         drawObjects();
+
+        fb->Bind();
+        glUniform1i(8,1);
+        drawObjects();
+        picking();
+        glUniform1i(8,0);
+        fb->Unbind();
+
+
+
     }
     else
         drawMultiCam();
@@ -185,6 +199,7 @@ void FinalGame::draw(double delta)
 
 void FinalGame::dispose()
 {
+    delete fb;
     delete cam;
     for(auto m : meshes)
         delete m;
@@ -210,7 +225,6 @@ void FinalGame::drawMultiCam()
     multicams[0]->Update();
     drawObjects();
 
-
     glViewport(win.getWidth()/2,win.getHeight()/2,win.getWidth()/2,win.getHeight()/2);
     multicams[1]->Update();
     drawObjects();
@@ -223,5 +237,29 @@ void FinalGame::drawMultiCam()
     multicams[3]->Update();
     drawObjects();
 
+}
+
+void FinalGame::picking()
+{
+    static vec3 colorTochange(0.5f,0.0f,0.5f);
+    static Mesh* selectedMesh = nullptr;
+    static vec4 oldColor;
+    vec3 v;
+    if(sysInput::isMouseButtonDown(1))
+    {
+        v = fb->ReadMousePixel();
+        for(auto m : meshes)
+            if(m->isColorEqual(v))
+            {
+                if(selectedMesh != nullptr)
+                    selectedMesh->changeColor(oldColor);
+                auto alfa = m->getColor().w;
+                oldColor = m->getColor();
+                m->changeColor(vec4(colorTochange,alfa));
+                selectedMesh = m;
+                break;
+            }
+
+    }
 }
 

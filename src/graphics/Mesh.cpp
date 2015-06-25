@@ -135,6 +135,24 @@ void Mesh::setNormals(const std::vector<glm::vec3> &normals)
     m_normals = normals;
 }
 
+#define ABS(X) (((X) < 0.0f) ? -(X) : (X))
+#define FLOAT_EQL(X,Y) (ABS((X)-(Y)) < 0.01f ? 1 : 0)
+
+bool Mesh::isColorEqual(const glm::vec3 color)
+{
+    auto v = m_color[0];
+    LOG("v = " << v.x << ", " << v.y);
+    LOG("color = " << color.x << ", " << color.y);
+    LOG("t = " << ABS(v.x - color.x) );
+
+    return FLOAT_EQL(v.x,color.x) && FLOAT_EQL(v.y,color.y) && FLOAT_EQL(v.z,color.z);
+}
+
+glm::vec4 Mesh::getColor()
+{
+    return m_color[0];
+}
+
 std::vector<GLuint> Mesh::elements() const
 {
     return m_elements;

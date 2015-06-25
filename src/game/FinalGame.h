@@ -4,10 +4,13 @@
 #include "interfaces/iGame.h"
 
 #include <vector>
+#include <glm/glm.hpp>
+using glm::vec3;
 
 class Mesh;
 class Camera;
 class TexMesh;
+class FrameBuffer;
 class FinalGame : public iGame
 {
 public:
@@ -32,12 +35,14 @@ private:
     bool multiView = false;
     Camera* selectedCam;
     Camera* cam;
-
     Camera* multicams[4];
+
+    FrameBuffer * fb;
     unsigned int camNum;
     unsigned int maxCams = 2;
     void drawObjects();
     void drawMultiCam();
+    void picking();
 };
 
 #endif // FinalGAME_H

@@ -12,6 +12,7 @@ private:
     float w,h;
 public:
     Texture(const std::string filename);
+    Texture(int width, int height);
     ~Texture();
     void Bind();
     void Unbind();
@@ -19,5 +20,6 @@ public:
     void setW(float value);
     float getH() const;
     void setH(float value);
+    unsigned int getTextureId() const;
 };
 #endif // TEXTURE_H

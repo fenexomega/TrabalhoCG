@@ -83,5 +83,7 @@ public:
     void setElements(const std::vector<GLuint> &elements);
     std::vector<glm::vec3> normals() const;
     void setNormals(const std::vector<glm::vec3> &normals);
+    bool isColorEqual(const vec3 color);
+    glm::vec4 getColor();
 };
 #endif

@@ -59,7 +59,7 @@ void main(void)
             finalColor = result*outColor;
         return;
     }
-    finalColor = outColor;
+    finalColor = vec4(outColor.xyz,1.0);
 
 }
 
