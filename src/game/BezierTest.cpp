@@ -91,7 +91,6 @@ void BezierTest::update(double delta)
 
     auto mouseWheel = sysInput::getMouseWheel();
     static GameInput gi(meshes);
-//    LOG(mouseWheel);
     gi.Update();
 
     if(sysInput::isKeyPressed(SDL_SCANCODE_W))

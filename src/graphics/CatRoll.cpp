@@ -1,4 +1,4 @@
-#include "Spline.h"
+#include "CatRoll.h"
 
 #include "utils/Logger.h"
 #define CLAMP(A,B) (A) > (B) ? (A) : (B)
@@ -6,7 +6,7 @@
 
 
 
-Spline::Spline(glm::vec3 *ctrlPoints, int numCtrlPoints, int numPoints )
+CatRoll::CatRoll(glm::vec3 *ctrlPoints, int numCtrlPoints, int numPoints )
     : _numPoints(numPoints)
 {
     int i = 0;
@@ -19,12 +19,12 @@ Spline::Spline(glm::vec3 *ctrlPoints, int numCtrlPoints, int numPoints )
     int e = 0;
     glm::vec4 point;
     glm::vec4 uvec;
-    _spline =  glm::mat4({-1 , 3,-3, 1,
-                            3 ,-6, 3, 0,
-                            -3 , 0, 3, 0,
-                            1 , 4, 1, 0})/6.0f;
+    _spline =  glm::mat4({-1 , 2,-1, 0,
+                           3 ,-5, 0, 2,
+                          -3 , 4, 1, 0,
+                           1 ,-1, 0, 0 })/2.0f;
     //FOR OPENGL
-    _spline = glm::transpose(_spline);
+//    _spline = glm::transpose(_spline);
 
     glm::mat4 pmat;
 
@@ -58,7 +58,7 @@ Spline::Spline(glm::vec3 *ctrlPoints, int numCtrlPoints, int numPoints )
     setGlThings(vertex,elements,std::vector<vec3>(),false);
 }
 
-glm::vec3 Spline::getPositionAt(float u)
+glm::vec3 CatRoll::getPositionAt(float u)
 {
     glm::vec4 uvec, point;
 
@@ -87,7 +87,7 @@ glm::vec3 Spline::getPositionAt(float u)
 
 }
 
-glm::vec3 Spline::getUpPosition(float u)
+glm::vec3 CatRoll::getUpPosition(float u)
 {
     glm::vec4 uvec, point;
 
@@ -110,7 +110,7 @@ glm::vec3 Spline::getUpPosition(float u)
     return vec3(point.x,point.y,point.z);
 }
 
-glm::vec3 Spline::getNextPosition(float u)
+glm::vec3 CatRoll::getNextPosition(float u)
 {
     glm::vec4 uvec, point;
 
@@ -136,7 +136,7 @@ glm::vec3 Spline::getNextPosition(float u)
     return vec3(point.x,point.y,point.z);
 }
 
-glm::mat4 Spline::getTransformMatrix(float u)
+glm::mat4 CatRoll::getTransformMatrix(float u)
 {
     auto t = getPositionAt(u);
 
@@ -155,14 +155,14 @@ glm::mat4 Spline::getTransformMatrix(float u)
 
 
 
-int Spline::numCtrlPoints()
+int CatRoll::numCtrlPoints()
 {
     return _ctrlPoints.size();
 }
 
 
 
-void Spline::VDraw()
+void CatRoll::VDraw()
 {
     m_p->Use();
 

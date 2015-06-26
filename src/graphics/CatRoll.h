@@ -1,5 +1,5 @@
-#ifndef SPLINE_H
-#define SPLINE_H
+#ifndef CATROLL_H
+#define CATROLL_H
 
 
 #include "Mesh.h"
@@ -10,7 +10,7 @@
 using glm::vec3;
 
 
-class Spline : public Mesh, public iSpline
+class CatRoll : public Mesh, public iSpline
 {
 private:
     std::vector<vec3> _ctrlPoints;
@@ -18,7 +18,7 @@ private:
     glm::mat4 _spline;
 
 public:
-    Spline(vec3 * ctrlPoints, int numCtrlPoints, int numPoints);
+    CatRoll(vec3 * ctrlPoints, int numCtrlPoints, int numPoints);
     vec3 getPositionAt(float u);
     vec3 getUpPosition(float u);
     vec3 getNextPosition(float u);
@@ -29,4 +29,4 @@ public:
     void VDraw();
 };
 
-#endif // SPLINE_H
+#endif // CATROLL_H

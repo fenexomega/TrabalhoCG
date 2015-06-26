@@ -6,7 +6,7 @@
 #include <vector>
 
 class Cylinder;
-class Spline;
+class iSpline;
 class Mesh;
 class Camera;
 class MontanhaRussa : public iGame
@@ -27,10 +27,12 @@ public:
 private:
     std::vector<Mesh*> meshes;
     std::vector<Mesh*> sombras;
-    std::vector<Mesh*> etc;
+    std::vector<Mesh*> etc[2];
 
     Cylinder* _cylinder;
-    Spline* _bspline;
+    int _currentCurveNbr = 0;
+    iSpline* _currentCurve;
+    iSpline* curves[2];
     Camera* cam;
 };
 
