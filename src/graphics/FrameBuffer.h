@@ -8,7 +8,7 @@ class Texture;
 class FrameBuffer
 {
 private:
-    GLuint m_fbo;
+    GLuint m_fbo,m_rbo;
     Texture *tx;
 public:
     FrameBuffer(int w, int h);

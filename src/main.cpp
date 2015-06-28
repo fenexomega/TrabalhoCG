@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
     Engine eng;
-    eng.Run(new MontanhaRussa);
+    eng.Run(new FinalGame);
     return 0;
 }
 

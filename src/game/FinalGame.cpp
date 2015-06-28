@@ -42,11 +42,11 @@ void FinalGame::init()
 {
 
     Window win;
-    win.CreateWindow(1024,728,"Trabalho Final");
+    win.CreateWindow(1440,900,"Trabalho Final");
 	glEnable(GL_DEPTH_TEST);
 //    glEnable(GL_LINE_SMOOTH);
-    glEnable(GL_CULL_FACE);
-    glCullFace(GL_BACK);
+//    glEnable(GL_CULL_FACE);
+//    glCullFace(GL_BACK);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
@@ -97,6 +97,8 @@ void FinalGame::init()
     multicams[1] = new Camera(vec3(0,0.5,3.0f),vec3(0,0.5,0),vec3(0,1,0),70.0f);
     multicams[2] = new Camera(vec3(0,0.5,3.0f),vec3(0,0.5,0),vec3(0,1,0),70.0f);
     multicams[3] = new Camera(vec3(0,0.5,3.0f),vec3(0,0.5,0),vec3(0,1,0),70.0f);
+
+
 
     camNum = 0;
 
@@ -182,6 +184,8 @@ void FinalGame::draw(double delta)
         drawObjects();
 
         fb->Bind();
+        glClearColor(0.0f,0.0f,0.0f,1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glUniform1i(8,1);
         drawObjects();
         picking();

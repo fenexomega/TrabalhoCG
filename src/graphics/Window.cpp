@@ -1,6 +1,8 @@
 #include "Window.h"
 
 #include "utils/Logger.h"
+#include <SDL2/SDL_image.h>
+#include <ctime>
 
 SDL_Window *Window::SDLwindow;
 SDL_GLContext Window::GLcontext;
@@ -38,6 +40,24 @@ std::string Window::getTitle()
 void Window::setTitle(const std::string &value)
 {
     _title = value;
+}
+
+void Window::InvertImage(GLuint*& data)
+{
+    GLuint *temp = new GLuint[width*height];
+    int OriginalImageHeight;
+
+    for(int y = 0; y < height ; ++y)
+    {
+        OriginalImageHeight = height - y -1;
+        for(int x = 0; x < width ; ++x)
+        {
+
+            temp[x + width*y] = data[x + width*OriginalImageHeight];
+        }
+    }
+    delete data;
+    data = temp;
 }
 void Window::CreateGlContext()
 {
@@ -113,6 +133,26 @@ void Window::Destroy()
 {
     SDL_GL_DeleteContext(GLcontext);
     SDL_DestroyWindow(SDLwindow);
+}
+
+void Window::TakeShot()
+{
+    time_t t = time(0);
+    std::string strtime(std::ctime(&t));
+    LOG(strtime);
+    LOG("WIDTH = " << width);
+    GLuint *data = new GLuint[width*height];
+    glReadPixels(0,0,width,height,GL_RGBA,GL_UNSIGNED_BYTE,(void *)&data[0]);
+    InvertImage(data);
+    SDL_Surface *sshot = SDL_CreateRGBSurfaceFrom(data,width,height,8*4,width*4,0x000000FF,0x0000FF00,0x00FF0000,0xFF000000 );
+
+    //Gambiarra para remover o último caractere do strtime, que é um \n
+    const char * printName = (strtime.erase(strtime.npos + strtime.size() ) + ".png").c_str();
+
+    IMG_SavePNG(sshot, printName);
+    SDL_FreeSurface(sshot);
+    delete data;
+    PRINT("Screenshot Taken!");
 }
 
 void Window::SetTitle(std::string title)

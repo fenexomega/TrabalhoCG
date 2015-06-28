@@ -32,6 +32,8 @@ public:
     static void setHeight(int value);
     static std::string getTitle();
     static void setTitle(const std::string &value);
+    void TakeShot();
+    void InvertImage(GLuint *&data);
 };
 
 #endif // WINDOW_H

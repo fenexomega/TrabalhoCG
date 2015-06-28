@@ -32,6 +32,7 @@ private:
     std::vector<Mesh*> transparentes;
     std::vector<TexMesh*> texturizados;
     std::vector<Mesh*> etc;
+    std::vector<Mesh*> cameras;
     bool multiView = false;
     Camera* selectedCam;
     Camera* cam;
@@ -39,7 +40,7 @@ private:
 
     FrameBuffer * fb;
     unsigned int camNum;
-    unsigned int maxCams = 2;
+    unsigned int maxCams = 4;
     void drawObjects();
     void drawMultiCam();
     void picking();

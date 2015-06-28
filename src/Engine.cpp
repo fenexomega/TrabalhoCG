@@ -69,7 +69,13 @@ void Engine::Run(iGame *game)
 
         game->draw(timeFrame);
 
+        if(sysInput::isKeyDown(SDL_SCANCODE_F10))
+            win.TakeShot();
+
+
 //        win.SwapBuffers();
+
+
     }
 	game->dispose();
 
