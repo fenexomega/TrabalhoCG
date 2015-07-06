@@ -255,7 +255,7 @@ void Mesh::changeColor(glm::vec4 color, bool original )
 
 void Mesh::VUpdate()
 {
-
+    m_transform->Update();
 }
 
 void Mesh::VDraw()

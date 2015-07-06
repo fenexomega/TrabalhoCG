@@ -48,5 +48,6 @@ public:
     void setScale(const vec3 &scale);
     glm::mat4 getModel() const;
     void setModel(const glm::mat4 &model);
+    void Update();
 };
 #endif // TRANSFORM_H

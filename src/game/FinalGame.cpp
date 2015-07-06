@@ -42,7 +42,7 @@ void FinalGame::init()
 {
 
     Window win;
-    win.CreateWindow(1440,900,"Trabalho Final");
+    win.CreateWindow(1360,748,"Trabalho Final",false);
 	glEnable(GL_DEPTH_TEST);
 //    glEnable(GL_LINE_SMOOTH);
 //    glEnable(GL_CULL_FACE);

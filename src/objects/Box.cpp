@@ -128,10 +128,6 @@ Box::~Box()
 
 }
 
-void Box::VUpdate()
-{
-
-}
 
 void Box::VDraw()
 {

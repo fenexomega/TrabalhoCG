@@ -15,7 +15,6 @@ public:
 
     // Mesh interface
 public:
-    void VUpdate();
     void VDraw();
 };
 

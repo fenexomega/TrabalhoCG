@@ -43,6 +43,8 @@ void MontanhaRussa::init()
 {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_LINE_SMOOTH);
+    Window win;
+    win.CreateWindow(1360,748,"Montanha Russa",true);
 
     vec3 control_points[] = {
         {0.0f ,0.0f,0.0f},

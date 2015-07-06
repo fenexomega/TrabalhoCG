@@ -55,6 +55,11 @@ void Transform::setModel(const glm::mat4 &model)
     m_model = model;
 }
 
+void Transform::Update()
+{
+
+}
+
 Transform::Transform(glm::vec3 _m_pos,
                      glm::vec3 _m_rot,
                      glm::vec3 _m_scale) :
@@ -139,6 +144,9 @@ Transform& Transform::clear()
 
 void Transform::SendToShader()
 {
+    static glm::mat4 TImodel;
+    TImodel = glm::transpose(glm::inverse(m_model));
+    glUniformMatrix4fv(9,1,GL_FALSE,glm::value_ptr(TImodel));
     glUniformMatrix4fv(0,1,GL_FALSE,glm::value_ptr(m_model));
 }
 

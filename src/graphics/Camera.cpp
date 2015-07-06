@@ -56,6 +56,7 @@ void Camera::Update()
     glUniformMatrix4fv(viewAttrib,1,GL_FALSE,glm::value_ptr(view));
     glUniform3f(6,eye.x,eye.y,eye.z);
 
+
 }
 
 void Camera::Translate(GLfloat x, GLfloat y, GLfloat z)
